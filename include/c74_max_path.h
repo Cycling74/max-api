@@ -149,7 +149,7 @@ namespace max {
 		result = locatefile_extended(filename,&path,&type,typelist,1); 
 		@endcode
 	*/
-	short locatefile_extended(char* name, short* outvol, t_symbol* outtype, const t_symbol* filetypelist, short numtypes);
+	short locatefile_extended(char* name, short* outvol, t_fourcc* outtype, const t_fourcc* filetypelist, short numtypes);
 
 
 	/**	Resolve a Path ID plus a (possibly extended) file name
@@ -339,7 +339,7 @@ namespace max {
 		 @see path_topathname()
 		 @see locatefile_extended()
 	 */
-	t_max_err path_absolutepath(t_symbol** returned_path, const t_symbol* s, const t_symbol* filetypelist, short numtypes);
+	t_max_err path_absolutepath(t_symbol** returned_path, const t_symbol* s, const t_fourcc* filetypelist, short numtypes);
 
 
 	END_USING_C_LINKAGE

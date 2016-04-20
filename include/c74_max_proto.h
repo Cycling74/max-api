@@ -852,7 +852,7 @@ namespace max {
 		@see saveasdialog_extended()
 		@see locatefile_extended()
 	 */
-	short open_dialog(char* name, short* volptr, t_symbol* typeptr, t_symbol* types, short ntypes);
+	short open_dialog(char* name, short* volptr, t_fourcc* typeptr, t_fourcc* types, short ntypes);
 
 
 	/** Present the user with the standard save file dialog with your own list of file types.
@@ -901,7 +901,7 @@ namespace max {
 		@see open_dialog()
 		@see locatefile_extended()
 	 */
-	short saveasdialog_extended(char* name, short* vol, t_symbol* type, t_symbol* typelist, short numtypes);
+	short saveasdialog_extended(char* name, short* vol, t_fourcc* type, t_fourcc* typelist, short numtypes);
 
 	void saveas_autoextension(char way);
 	void saveas_setselectedtype(t_fourcc type);
