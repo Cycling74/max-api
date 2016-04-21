@@ -208,7 +208,7 @@ namespace max {
 	//void* jit_object_method(void* x, t_symbol* s, ...) JIT_WEAKLINK;
 	void* jit_object_method(void* x, t_symbol* s, ...);
 	#ifdef C74_X64
-		#define jit_object_method(...) C74_VARFUN(jit_object_method_imp, __VA_ARGS__)
+		#define jit_object_method(...) C74_VARFUN(c74::max::jit_object_method_imp, __VA_ARGS__)
 	#endif
 	void* jit_object_method_imp(void* x, void* s, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 	void* jit_object_method_typed(void* x, t_symbol* s, long ac, t_atom* av, t_atom* rv);

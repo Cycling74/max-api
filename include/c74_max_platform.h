@@ -93,6 +93,7 @@ namespace c74 {
 	//#define _SCL_SECURE_NO_WARNINGS
 	//#endif 
 
+	#define NOMINMAX
 	#include "windows.h"
 
 	#define strncpy(dst, src, size) strncpy_s(dst, size, src, _TRUNCATE);
