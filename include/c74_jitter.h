@@ -11,8 +11,8 @@
 namespace c74 { 
 namespace max {
 
-	static const int JIT_MATRIX_MAX_DIMCOUNT = 32; 	///< maximum dimension count @ingroup jitter
-	static const int JIT_MATRIX_MAX_PLANECOUNT	32 			///< maximum plane count @ingroup jitter
+	static const int JIT_MATRIX_MAX_DIMCOUNT = 32;		///< maximum dimension count @ingroup jitter
+	static const int JIT_MATRIX_MAX_PLANECOUNT = 32;	///< maximum plane count @ingroup jitter
 
 
 
