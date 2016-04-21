@@ -372,8 +372,8 @@ namespace max {
 	*/
 	#define CLASS_ATTR_ACCESSORS(c,attrname,getter,setter) \
 		{ t_object* theattr=(t_object* )class_attr_get(c,gensym(attrname)); \
-			object_method(theattr,gensym("setmethod"), gensym("get"),getter); \
-			object_method(theattr,gensym("setmethod"), gensym("set"),setter); }
+			object_method(theattr,gensym("setmethod"), (void*)gensym("get"), (void*)getter); \
+			object_method(theattr,gensym("setmethod"), (void*)gensym("set"), (void*)setter); }
 
 
 	/**
@@ -1688,20 +1688,6 @@ namespace max {
 	*/
 	method object_getmethod(void* x, t_symbol* s);
 
-
-	/**	Send a message to an object with no arguments.
-		In previous versions of the SDK this object might send messages with arguments as well.
-		For those cases you should now use object_method_typed() or object_method_direct().
-	 
-		@ingroup obj
-	*/
-	inline void* object_method(t_object* target_object, t_symbol* method_name) {
-		method m = object_getmethod(target_object, method_name);
-		if (m)
-			return m(target_object);
-		else
-			return nullptr;
-	}
 
 
 	t_symbol* class_namespace(t_class* c);		// return the namespace the class is part of
@@ -3104,4 +3090,28 @@ namespace max {
 
 	END_USING_C_LINKAGE
 
+	
+	/**	Send a message to an object with no arguments.
+		In previous versions of the SDK this object might send messages with arguments as well.
+		For those cases you should now use object_method_typed() or object_method_direct().
+	 
+		@ingroup obj
+	 */
+	inline void* object_method(t_object* target_object, t_symbol* method_name) {
+		method m = object_getmethod(target_object, method_name);
+		if (m)
+			return m(target_object);
+		else
+			return nullptr;
+	}
+	
+	inline void* object_method(t_object* target_object, t_symbol* method_name, void* arg1, void* arg2) {
+		method m = object_getmethod(target_object, method_name);
+		if (m)
+			return m(target_object, arg1, arg2);
+		else
+			return nullptr;
+	}
+
+	
 }} // namespace c74::max
