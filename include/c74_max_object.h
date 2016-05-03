@@ -16,7 +16,7 @@ namespace max {
 		@param	y	The name of the member
 		@return		A pointer-sized integer representing the number of bytes into the struct where the member begins.
 	*/
-	#define calcoffset(x,y) ((t_ptr_int)(&(((x *)0L)->y)))
+	#define calcoffset(x,y) ((c74::max::t_ptr_int)(&(((x *)0L)->y)))
 
 
 
@@ -1584,11 +1584,11 @@ namespace max {
 
 		@return 			This function returns a new instance of the object class if successful, or NULL if unsuccessful.
 	*/
-	void* object_new(const t_symbol* name_space, const t_symbol* classname, ...);
-
-	#ifdef C74_X64
-	#define object_new(...) C74_VARFUN(object_new_imp, __VA_ARGS__)
-	#endif
+//	void* object_new(const t_symbol* name_space, const t_symbol* classname, ...);
+//
+//	#ifdef C74_X64
+//	#define object_new(...) C74_VARFUN(object_new_imp, __VA_ARGS__)
+//	#endif
 
 	void* object_new_imp(void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
 
