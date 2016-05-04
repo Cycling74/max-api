@@ -1584,13 +1584,13 @@ namespace max {
 
 		@return 			This function returns a new instance of the object class if successful, or NULL if unsuccessful.
 	*/
-//	void* object_new(const t_symbol* name_space, const t_symbol* classname, ...);
-//
-//	#ifdef C74_X64
-//	#define object_new(...) C74_VARFUN(object_new_imp, __VA_ARGS__)
-//	#endif
+	t_object* object_new(const t_symbol* name_space, const t_symbol* classname, ...);
 
-	void* object_new_imp(void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
+	#ifdef C74_X64
+		#define object_new(...) C74_VARFUN(object_new_imp, __VA_ARGS__)
+	#endif
+
+	t_object* object_new_imp(void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
 
 
 	/**
