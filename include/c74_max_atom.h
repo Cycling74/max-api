@@ -83,7 +83,7 @@ namespace max {
 	///	@param 	b		Pointer to a #t_symbol to copy into the #t_atom
 	///	@return 		This function returns the error code #MAX_ERR_NONE if successful, 
 	///	 				or one of the other error codes defined in #e_max_errorcodes if unsuccessful.
-	t_max_err atom_setsym(t_atom* a, t_symbol* b);				
+	t_max_err atom_setsym(t_atom* a, const t_symbol* b);
 
 	///	Inserts a generic pointer value into a #t_atom and change the t_atom's type to #A_OBJ. 
 	///	@ingroup atom
@@ -214,7 +214,7 @@ namespace max {
     ///
 	///	@return		A Max error code.
 	///	@see		atom_setparse()
-	t_max_err atom_gettext(long ac, t_atom* av, long* textsize, char** text, long flags);
+	t_max_err atom_gettext(long ac, const t_atom* av, long* textsize, char** text, long flags);
 
 	///	Determines whether or not an atom represents a #t_string object.
 	///	@ingroup	atom
