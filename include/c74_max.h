@@ -5,7 +5,7 @@
 
 #pragma once
 
-#define C74_MAX_SDK_VERSION 0x0740
+#define C74_MAX_SDK_VERSION 0x0730
 
 #include "c74_max_platform.h"
 #include "c74_max_preprocessor.h"
@@ -40,6 +40,8 @@ namespace max {
 		#endif
 	}
 	
+	BEGIN_USING_C_LINKAGE
+	
 	///	Retrieves an object instance's class name
 	/// @ingroup obj
 	///	@param 	x		The object instance whose class name is being queried
@@ -49,6 +51,8 @@ namespace max {
 	/// Return the namespace to which this object's class belongs
 	/// @ingroup obj
 	t_symbol* object_namespace(t_object* x);
+	
+	END_USING_C_LINKAGE
 	
 }} // namespace c74::max
 
