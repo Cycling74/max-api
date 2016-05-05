@@ -446,7 +446,7 @@ namespace max {
 						declared to take a single argument as shown in @ref clocks_using_clocks.
 		@return			A pointer to a newly created Clock object.
 	*/
-	void* clock_new(void* obj, method fn);
+	t_clock* clock_new(void* obj, method fn);
 
 
 	/**	Cancel the scheduled execution of a Clock. 
