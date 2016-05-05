@@ -3087,6 +3087,9 @@ namespace max {
 	 */				
 	t_max_err object_attr_touch(t_object* x, t_symbol* attrname);
 
+	
+	t_max_err object_retain(t_object *x);
+	
 
 	END_USING_C_LINKAGE
 
