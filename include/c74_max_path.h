@@ -182,6 +182,7 @@ namespace max {
 	short path_desktopfolder(void);
 	short path_userdocfolder(void);
 	short path_usermaxfolder(void);
+	short preferences_path(const char *name, short create, short *path);
 
 	short path_createfolder(const short path, const char* name, short* newpath);
 	short path_copyfile(short srcpath, char* srcname, short dstpath, char* dstname);
