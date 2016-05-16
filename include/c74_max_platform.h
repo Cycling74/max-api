@@ -125,13 +125,14 @@ namespace c74 {
 
 
 // Atomics
+#include <libkern/OSAtomic.h>
+
 namespace c74 {
 namespace max {
 
 
 	#ifdef MAC_VERSION
 
-	#include <libkern/OSAtomic.h>
 	typedef volatile int32_t t_int32_atomic;
 	typedef volatile int64_t t_int64_atomic;
 	typedef volatile u_int32_t t_uint32_atomic;
