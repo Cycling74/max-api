@@ -4,10 +4,11 @@
 string(REGEX REPLACE "(.*)/" "" THIS_FOLDER_NAME "${CMAKE_CURRENT_SOURCE_DIR}")
 project(${THIS_FOLDER_NAME})
 
-
-set(MAXSDK_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../../max-api)
-set(C74_INCLUDES "${MAXSDK_PATH}/include")
-set(C74_SCRIPTS "${MAXSDK_PATH}/script")
+if (NOT DEFINED C74_MAX_API_DIR)
+	set(C74_MAX_API_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../max-api)
+endif ()
+set(C74_INCLUDES "${C74_MAX_API_DIR}/include")
+set(C74_SCRIPTS "${C74_MAX_API_DIR}/script")
 
 set(C74_CXX_STANDARD 0)
 
@@ -25,13 +26,13 @@ IF(WIN32)
 	set(CMAKE_PDB_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/tmp")
 
 	if(WIN64)
-		SET(MaxAPI_LIB ${MAXSDK_PATH}/lib/win64/MaxAPI.lib)
-		SET(MaxAudio_LIB ${MAXSDK_PATH}/lib/win64/MaxAudio.lib)
-		SET(Jitter_LIB ${MAXSDK_PATH}/lib/win64/jitlib.lib)	
+		SET(MaxAPI_LIB ${C74_MAX_API_DIR}/lib/win64/MaxAPI.lib)
+		SET(MaxAudio_LIB ${C74_MAX_API_DIR}/lib/win64/MaxAudio.lib)
+		SET(Jitter_LIB ${C74_MAX_API_DIR}/lib/win64/jitlib.lib)	
 	else()
-		SET(MaxAPI_LIB ${MAXSDK_PATH}/lib/win32/MaxAPI.lib)
-		SET(MaxAudio_LIB ${MAXSDK_PATH}/lib/win32/MaxAudio.lib)
-		SET(Jitter_LIB ${MAXSDK_PATH}/lib/win32/jitlib.lib)
+		SET(MaxAPI_LIB ${C74_MAX_API_DIR}/lib/win32/MaxAPI.lib)
+		SET(MaxAudio_LIB ${C74_MAX_API_DIR}/lib/win32/MaxAudio.lib)
+		SET(Jitter_LIB ${C74_MAX_API_DIR}/lib/win32/jitlib.lib)
 	endif()
 
 	MARK_AS_ADVANCED (MaxAPI_LIB)
