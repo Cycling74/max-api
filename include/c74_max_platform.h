@@ -125,7 +125,9 @@ namespace c74 {
 
 
 // Atomics
+#ifdef MAC_VERSION
 #include <libkern/OSAtomic.h>
+#endif
 
 namespace c74 {
 namespace max {
