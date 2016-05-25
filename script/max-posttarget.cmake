@@ -12,17 +12,17 @@ else ()
 	set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD_REQUIRED ON)
 endif ()
 
-if("${PROJECT_NAME}" MATCHES ".*_tilde")
+if ("${PROJECT_NAME}" MATCHES ".*_tilde")
 	string(REGEX REPLACE "_tilde" "~" EXTERN_OUTPUT_NAME "${PROJECT_NAME}")
-else()
+else ()
     set(EXTERN_OUTPUT_NAME "${PROJECT_NAME}")
-endif()
+endif ()
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "${EXTERN_OUTPUT_NAME}")
 
 
 
 ### Output ###
-if(APPLE)
+if (APPLE)
 	target_link_libraries(${PROJECT_NAME} "-framework JitterAPI")
 	set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-Wl,-F${C74_MAX_API_DIR}/lib/mac")
 	
@@ -33,26 +33,25 @@ if(APPLE)
 	set_target_properties(${PROJECT_NAME} PROPERTIES XCODE_ATTRIBUTE_WRAPPER_EXTENSION "mxo")
 	set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_BUNDLE_VERSION "${GIT_VERSION_TAG}")
     set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_LIST_DIR}/Info.plist.in)	
-elseif(WIN32)
+elseif (WIN32)
 	target_link_libraries(${PROJECT_NAME} ${MaxAPI_LIB})
 	target_link_libraries(${PROJECT_NAME} ${MaxAudio_LIB})
 	target_link_libraries(${PROJECT_NAME} ${Jitter_LIB})
 
-	if(WIN64)
+	if (WIN64)
 		set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".mxe64")
-	else()
+	else ()
 		set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".mxe")
-	endif()
-endif()
-
+	endif ()
+endif ()
 
 
 ### Post Build ###
-#if(WIN32)
+#if (WIN32)
 #	add_custom_command( 
 #		TARGET ${PROJECT_NAME} 
 #		POST_BUILD 
 #		COMMAND rm "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/${EXTERN_OUTPUT_NAME}.ilk" 
 #		COMMENT "ilk file cleanup" 
 #	)
-#endif()
+#endif ()
