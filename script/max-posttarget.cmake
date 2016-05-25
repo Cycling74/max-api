@@ -23,13 +23,16 @@ set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "${EXTERN_OUTPUT_NA
 
 ### Output ###
 if(APPLE)
+	target_link_libraries(${PROJECT_NAME} "-framework JitterAPI")
+	set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-Wl,-F${C74_MAX_API_DIR}/lib/mac")
+	
 	set_property(TARGET ${PROJECT_NAME}
 				 PROPERTY BUNDLE True)
 	set_property(TARGET ${PROJECT_NAME}
 				 PROPERTY BUNDLE_EXTENSION "mxo")	
 	set_target_properties(${PROJECT_NAME} PROPERTIES XCODE_ATTRIBUTE_WRAPPER_EXTENSION "mxo")
 	set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_BUNDLE_VERSION "${GIT_VERSION_TAG}")
-    set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_LIST_DIR}/Info.plist.in)
+    set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_LIST_DIR}/Info.plist.in)	
 elseif(WIN32)
 	target_link_libraries(${PROJECT_NAME} ${MaxAPI_LIB})
 	target_link_libraries(${PROJECT_NAME} ${MaxAudio_LIB})
