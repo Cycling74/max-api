@@ -257,6 +257,129 @@ namespace max {
 		long flags1, long flags2, long flags3, long flags4);
 
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// jit.gl.chunk.h
+	
+	namespace jit_gl_chunk_flags {
+		static const unsigned long IGNORE_TEXTURES	= 1 << 0;
+		static const unsigned long IGNORE_NORMALS	= 1 << 1;
+		static const unsigned long IGNORE_COLORS	= 1 << 2;
+		static const unsigned long IGNORE_EDGES		= 1 << 3;
+	}
+	
+	/// t_jit_glchunk is a public structure to store one gl-command's-worth of data,
+	/// in a format which can be passed easily to glDrawRangeElements, and matrixoutput.
+	struct t_jit_glchunk {
+		t_symbol	*	prim;			///< drawing primitive. "tri_strip", "tri", "quads", "quad_grid", etc.
+		t_jit_object *	m_vertex;		///< vertex matrix containing xyzst... data
+		t_symbol *		m_vertex_name;	///< vertex matrix name
+		t_jit_object *	m_index;		///< optional 1d matrix of vertex indices to use with drawing primitive
+		t_symbol *		m_index_name;	///< index matrix name
+		unsigned long	m_flags;		///< chunk flags to ignore texture, normal, color, or edge planes when drawing
+		void *			next_chunk;		///< pointer to next chunk for drawing a list of chunks together
+	};
+	
+	t_jit_glchunk * jit_glchunk_new(t_symbol * prim, int planes, int vertices, int indices);
+	t_jit_glchunk * jit_glchunk_grid_new(t_symbol * prim, int planes, int width, int height);
+	void jit_glchunk_delete(t_jit_glchunk * x);
+	t_jit_err jit_glchunk_copy(t_jit_glchunk ** newcopy, t_jit_glchunk * orig);
+		
+	
+	
+	
+	
+	// ob3d stuff
+	// flags -- default: all flags off.
+	namespace jit_ob3d_flags {
+		static const unsigned long NO_ROTATION_SCALE		= 1 << 0;      ///< ob3d flag @ingroup jitter
+		static const unsigned long NO_POLY_VARS				= 1 << 1;      ///< ob3d flag @ingroup jitter
+		static const unsigned long NO_BLEND					= 1 << 2;      ///< ob3d flag @ingroup jitter
+		static const unsigned long NO_TEXTURE				= 1 << 3;      ///< ob3d flag @ingroup jitter
+		static const unsigned long NO_MATRIXOUTPUT			= 1 << 4;      ///< ob3d flag @ingroup jitter
+		static const unsigned long AUTO_ONLY				= 1 << 5;      ///< ob3d flag @ingroup jitter
+		static const unsigned long DOES_UI					= 1 << 6;      ///< ob3d flag @ingroup jitter
+		static const unsigned long NO_DEPTH					= 1 << 7;      ///< ob3d flag @ingroup jitter
+		static const unsigned long NO_ANTIALIAS				= 1 << 8;      ///< ob3d flag @ingroup jitter
+		static const unsigned long NO_FOG					= 1 << 9;      ///< ob3d flag @ingroup jitter
+		static const unsigned long NO_LIGHTING_MATERIAL		= 1 << 10;     ///< ob3d flag @ingroup jitter
+		static const unsigned long HAS_LIGHTS				= 1 << 11;     ///< ob3d flag @ingroup jitter
+		static const unsigned long HAS_CAMERA				= 1 << 12;     ///< ob3d flag @ingroup jitter
+		static const unsigned long IS_RENDERER				= 1 << 13;     ///< ob3d flag @ingroup jitter
+		static const unsigned long NO_COLOR					= 1 << 14;     ///< ob3d flag @ingroup jitter
+		static const unsigned long IS_SLAB					= 1 << 15;     ///< ob3d flag @ingroup jitter
+		static const unsigned long NO_SHADER				= 1 << 16;
+		static const unsigned long PASS_THRU				= 1 << 17;
+		static const unsigned long IS_CAMERA				= 1 << 18;
+		static const unsigned long NO_BOUNDS				= 1 << 19;
+	}
+
+	
+	struct t_jit_class3d {
+		long				oboffset; 		// instance byte offset to the ob3d struct.
+		long				flags;
+		// extensible
+	};
+	
+	
+	void *jit_ob3d_setup(void * jit_class, long oboffset, long ob3d_flags);
+	t_jit_err jit_ob3d_set(void *x, void *p);
+	void *jit_ob3d_get(void *x);
+	void *jit_ob3d_new(void *x, t_symbol * dest_name);
+	void jit_ob3d_free(void *x);
+	t_jit_err jit_ob3d_set_context(void *x);
+	t_jit_err jit_ob3d_draw_chunk(void *ob3d, t_jit_glchunk * chunk);
+	void jit_ob3d_set_viewport(void *v, long x, long y, long width, long height);
+	
+//	void max_ob3d_setup(void);					// legacy api
+	void max_jit_class_ob3d_wrap(t_class *c);	// newer api
+	
+	// attach jit object bearing an ob3d to a max object and its outlet.
+	void max_jit_ob3d_attach(void *x, t_jit_object *jit_ob, void *outlet);
+	void max_jit_ob3d_detach(void *x);
+	t_jit_err max_jit_ob3d_assist(void *x, void *b, long m, long a, char *s);
+	t_atom_long max_jit_ob3d_acceptsdrag(void *x, t_object *drag, t_object *view);
+	
+	void * ob3d_jitob_get(void *v);
+	void * ob3d_patcher_get(void *v);
+	void * ob3d_next_get(void *v);
+	long ob3d_auto_get(void *v);
+	long ob3d_enable_get(void *v);
+	long ob3d_ui_get(void *v);
+	void * ob3d_outlet_get(void *v);
+	long ob3d_dirty_get(void *v);
+	void ob3d_dirty_set(void *v, long c);
+	void ob3d_dest_dim_set(void *v, long width, long height);
+	void ob3d_dest_dim_get(void *v, long *width, long *height);
+	void ob3d_render_ptr_set(void *v, void *render_ptr);
+	void * ob3d_render_ptr_get(void *v);
+	
+	void * ob3d_get_light(void *v, long index);
+	void ob3d_set_color(void *v, float *color);
+	void ob3d_get_color(void *v, float *color);
+	long ob3d_texture_count(void *v);
+	
+	t_jit_err ob3d_draw_begin(void *ob3d, long setup);
+	t_jit_err ob3d_draw_end(void *ob3d, long setup);
+	t_jit_err ob3d_draw_preamble(void *ob3d);
+	
+	t_symbol * jit_ob3d_init_jpatcher_render(void *jitob);
+
+	
+	
+	
+	
+	
+	
 
 	END_USING_C_LINKAGE
 
