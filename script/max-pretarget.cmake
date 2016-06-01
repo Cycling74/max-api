@@ -45,6 +45,7 @@ if (WIN32)
 	add_definitions(
 		-DMAXAPI_USE_MSCRT
 		-DWIN_VERSION
+		-D_USE_MATH_DEFINES
 	)
 else ()
 	file (STRINGS "${C74_MAX_API_DIR}/script/max-linker-flags.txt" C74_SYM_MAX_LINKER_FLAGS)
