@@ -84,6 +84,13 @@ namespace max {
 	static t_symbol* _jit_sym_list = gensym("list");
 	static t_symbol* _jit_sym_atom = gensym("atom");
 
+	static t_symbol *_jit_sym_type = gensym("type");
+	static t_symbol *_jit_sym_dim = gensym("dim");
+	static t_symbol *_jit_sym_planecount = gensym("planecount");
+	static t_symbol *_jit_sym_val = gensym("val");
+	static t_symbol *_jit_sym_plane = gensym("plane");
+	static t_symbol *_jit_sym_cell = gensym("cell");
+
 	static t_symbol* _jit_sym_jit_mop = gensym("jit_mop");
 	static t_symbol* _jit_sym_getdata = gensym("getdata");
 	static t_symbol* _jit_sym_data = gensym("data");
@@ -95,9 +102,19 @@ namespace max {
 	static t_symbol* _jit_sym_matrix_calc = gensym("matrix_calc");
 	static t_symbol* _jit_sym_jit_matrix = gensym("jit_matrix");
 	static t_symbol* _jit_sym_frommatrix = gensym("frommatrix");
-	
+	static t_symbol *_jit_sym_outputmatrix	= gensym("outputmatrix");
+	static t_symbol *_jit_sym_ioname = gensym("ioname");
+	static t_symbol *_jit_sym_matrixname = gensym("matrixname");
+	static t_symbol *_jit_sym_outputmode = gensym("outputmode");
+	static t_symbol *_jit_sym_matrix = gensym("matrix");
+	static t_symbol *_jit_sym_getmatrix = gensym("getmatrix");
+
+	static t_symbol *_jit_sym_inputcount = gensym("inputcount");
+	static t_symbol *_jit_sym_outputcount = gensym("outputcount");
 	static t_symbol* _jit_sym_getinput = gensym("getinput");
 	static t_symbol* _jit_sym_getoutput = gensym("getoutput");
+	static t_symbol *_jit_sym_getinputlist	= gensym("getinputlist");
+	static t_symbol *_jit_sym_getoutputlist	= gensym("getoutputlist");
 	static t_symbol* _jit_sym_mindimcount = gensym("mindimcount");
 	static t_symbol* _jit_sym_maxdimcount = gensym("maxdimcount");
 	static t_symbol* _jit_sym_minplanecount = gensym("minplanecount");
@@ -106,17 +123,44 @@ namespace max {
 	static t_symbol* _jit_sym_planelink = gensym("planelink");
 	static t_symbol* _jit_sym_mindim = gensym("mindim");
 	static t_symbol* _jit_sym_maxdim = gensym("maxdim");
+
 	static t_symbol* _jit_sym_types = gensym("types");
 	static t_symbol* _jit_sym_register = gensym("register");
-
+	static t_symbol *_jit_sym_name = gensym("name");
+	static t_symbol *_jit_sym_adapt = gensym("adapt");
+	static t_symbol *_jit_sym_decorator = gensym("decorator");
 	static t_symbol* _jit_sym_clear = gensym("clear");
 
-	static t_symbol* _jit_sym_jit_attr_offset = gensym("jit_attr_offset");
-	static t_symbol* _jit_sym_getinputlist = gensym("getinputlist");
-	static t_symbol* _jit_sym_getoutputlist = gensym("getoutputlist");
-	static t_symbol* _jit_sym_jit_attr_offset_array = gensym("jit_attr_offset_array");
-	static t_symbol* _jit_sym_ioproc = gensym("ioproc");
+	static t_symbol *_jit_sym_nothing		= gensym("");
+	static t_symbol *_jit_sym_new			= gensym("new");
+	static t_symbol *_jit_sym_free			= gensym("free");
+	static t_symbol *_jit_sym_classname		= gensym("classname");
+	static t_symbol *_jit_sym_getname		= gensym("getname");
+	static t_symbol *_jit_sym_getmethod		= gensym("getmethod");
+	static t_symbol *_jit_sym_get 			= gensym("get");
+	static t_symbol *_jit_sym_set 			= gensym("set");
+	static t_symbol *_jit_sym_setall		= gensym("setall");
+	static t_symbol *_jit_sym_rebuilding	= gensym("rebuilding");
+	static t_symbol *_jit_sym_modified		= gensym("modified");
 
+	static t_symbol *_jit_sym_class_jit_matrix	= gensym("class_jit_matrix");
+	static t_symbol *_jit_sym_class_jit_attribute	= gensym("class_jit_attribute");
+	static t_symbol *_jit_sym_jit_attribute		= gensym("jit_attribute");
+	static t_symbol *_jit_sym_jit_attr_offset	= gensym("jit_attr_offset");
+	static t_symbol *_jit_sym_jit_attr_offset_array	= gensym("jit_attr_offset_array");
+	static t_symbol *_jit_sym_max_jit_classex = gensym("max_jit_classex");
+
+	static t_symbol *_jit_sym_position		= gensym("position");
+	static t_symbol *_jit_sym_rotatexyz		= gensym("rotatexyz");
+	static t_symbol *_jit_sym_scale			= gensym("scale");
+	static t_symbol *_jit_sym_quat			= gensym("quat");
+	static t_symbol *_jit_sym_direction		= gensym("direction");
+	static t_symbol *_jit_sym_lookat		= gensym("lookat");
+	static t_symbol *_jit_sym_anim			= gensym("anim");
+	static t_symbol *_jit_sym_bounds		= gensym("bounds");
+	static t_symbol *_jit_sym_boundcalc		= gensym("boundcalc");
+	static t_symbol *_jit_sym_calcbounds	= gensym("calcbounds");
+	static t_symbol *_jit_sym_drawto		= gensym("drawto");
 
 
 	struct t_jit_matrix_info {
