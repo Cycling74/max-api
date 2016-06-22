@@ -219,7 +219,8 @@ namespace max {
 	long max_jit_mop_getoutputmode(void* x);
 	void* max_jit_mop_getinput(void* x, long c);
 	void* max_jit_mop_getoutput(void* x, long c);
-
+    t_jit_err max_jit_mop_outputmatrix(void *x);
+    
 	t_jit_err jit_matrix_info_default(t_jit_matrix_info* info);
 
 	void jit_error_code(void* x,t_jit_err v); //interrupt safe
@@ -239,7 +240,8 @@ namespace max {
 	t_jit_err jit_attr_addfilterset_clip(void* x, double min, double max, long usemin, long usemax);
 	void max_jit_attr_args(void* x, short ac, t_atom* av);
 	void* max_jit_obex_jitob_get(void* x);
-
+    void *max_jit_obex_adornment_get(void *x, t_symbol *classname);
+    
 	void* jit_object_alloc(void* c);
 	t_jit_object* jit_object_new(t_symbol* classname, ...);
 	#ifdef C74_X64
