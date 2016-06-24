@@ -231,6 +231,15 @@ namespace max {
     t_jit_err max_jit_mop_variable_addoutputs(void *x, long c);
     t_jit_err max_jit_mop_matrix_args(void *x, long argc, t_atom *argv);
     
+    t_jit_err max_jit_mop_name(void *x, void *attr, long argc, t_atom *argv);
+    t_jit_err max_jit_mop_getname(void *x, void *attr, long *argc, t_atom **argv);
+    t_jit_err max_jit_mop_type(void *x, void *attr, long argc, t_atom *argv);
+    t_jit_err max_jit_mop_gettype(void *x, void *attr, long *argc, t_atom **argv);
+    t_jit_err max_jit_mop_dim(void *x, void *attr, long argc, t_atom *argv);
+    t_jit_err max_jit_mop_getdim(void *x, void *attr, long *argc, t_atom **argv);
+    t_jit_err max_jit_mop_planecount(void *x, void *attr, long argc, t_atom *argv);
+    t_jit_err max_jit_mop_getplanecount(void *x, void *attr, long *argc, t_atom **argv);
+    
 	void jit_error_code(void* x,t_jit_err v); //interrupt safe
 
 
