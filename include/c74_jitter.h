@@ -216,13 +216,21 @@ namespace max {
 	t_jit_err jit_mop_single_planecount(void* x, long c);
 	t_jit_err jit_mop_input_nolink(void* mop, long c);
 	t_jit_err jit_mop_output_nolink(void* mop, long c);
-	long max_jit_mop_getoutputmode(void* x);
+	
+    long max_jit_mop_getoutputmode(void* x);
 	void* max_jit_mop_getinput(void* x, long c);
 	void* max_jit_mop_getoutput(void* x, long c);
     t_jit_err max_jit_mop_outputmatrix(void *x);
-    
+    t_jit_err max_jit_mop_setup(void *x);
+    t_jit_err max_jit_mop_inputs(void *x);
+    t_jit_err max_jit_mop_inputs_resize(void *x, long count);
+    t_jit_err max_jit_mop_outputs(void *x);
+    t_jit_err max_jit_mop_outputs_resize(void *x, long count);
 	t_jit_err jit_matrix_info_default(t_jit_matrix_info* info);
-
+    t_jit_err max_jit_mop_variable_addinputs(void *x, long c);
+    t_jit_err max_jit_mop_variable_addoutputs(void *x, long c);
+    t_jit_err max_jit_mop_matrix_args(void *x, long argc, t_atom *argv);
+    
 	void jit_error_code(void* x,t_jit_err v); //interrupt safe
 
 
@@ -239,8 +247,19 @@ namespace max {
 	C74_DEPRECATED( void max_jit_obex_free(void* x) );
 	t_jit_err jit_attr_addfilterset_clip(void* x, double min, double max, long usemin, long usemax);
 	void max_jit_attr_args(void* x, short ac, t_atom* av);
-	void* max_jit_obex_jitob_get(void* x);
+    long max_jit_attr_args_offset(short ac, t_atom *av);
+    
+    t_jit_err max_jit_obex_set(void *x, void *p);
+    void* max_jit_obex_jitob_get(void* x);
+    void max_jit_obex_jitob_set(void *x, void *jitob);
+    void max_jit_obex_dumpout_set(void *x, void *outlet);
+    void *max_jit_obex_dumpout_get(void *x);
+    void max_jit_obex_dumpout(void *x, t_symbol *s, short argc, t_atom *argv);
     void *max_jit_obex_adornment_get(void *x, t_symbol *classname);
+    t_jit_err max_jit_obex_addadornment(void *x,void *adornment);
+    void max_jit_obex_gimmeback(void *x, t_symbol *s, long ac, t_atom *av);
+    void max_jit_obex_gimmeback_dumpout(void *x, t_symbol *s, long ac, t_atom *av);
+    t_jit_err max_jit_obex_proxy_new(void *x, long c);
     
 	void* jit_object_alloc(void* c);
 	t_jit_object* jit_object_new(t_symbol* classname, ...);
