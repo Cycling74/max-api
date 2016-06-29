@@ -161,6 +161,8 @@ namespace max {
 	static t_symbol *_jit_sym_boundcalc		= gensym("boundcalc");
 	static t_symbol *_jit_sym_calcbounds	= gensym("calcbounds");
 	static t_symbol *_jit_sym_drawto		= gensym("drawto");
+    
+    static t_symbol *_jit_sym_jitter		= gensym("jitter");
 
 
 	struct t_jit_matrix_info {
@@ -196,6 +198,7 @@ namespace max {
 	t_jit_err jit_class_addmethod(void* c, method m, const char* name, ...);
 	t_jit_err jit_class_addattr(void* c, t_jit_object* attr);
 	t_jit_err jit_class_addadornment(void* c, t_jit_object* o);
+    t_jit_err jit_class_addinterface(void *c, void *interfaceclass, long byteoffset, long flags);
 
 
 
@@ -269,6 +272,8 @@ namespace max {
     void max_jit_obex_gimmeback(void *x, t_symbol *s, long ac, t_atom *av);
     void max_jit_obex_gimmeback_dumpout(void *x, t_symbol *s, long ac, t_atom *av);
     t_jit_err max_jit_obex_proxy_new(void *x, long c);
+    long max_jit_obex_inletnumber_get(void *x);
+    void max_jit_obex_inletnumber_set(void *x, long inletnumber);
     
 	void* jit_object_alloc(void* c);
 	t_jit_object* jit_object_new(t_symbol* classname, ...);
