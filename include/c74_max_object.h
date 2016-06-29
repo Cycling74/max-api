@@ -38,7 +38,7 @@ namespace max {
 		@param	structmember	The C identifier of the member in the struct that holds the value of this attribute.
 	*/
 	#define CLASS_ATTR_CHAR(c,attrname,flags,structname,structmember) \
-		class_addattr((c),attr_offset_new(attrname, gensym(char),(flags),(method)0L,(method)0L,calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_new(attrname, c74::max::gensym(char),(flags),(method)0L,(method)0L,calcoffset(structname,structmember)))
 
 
 	/**
@@ -54,13 +54,13 @@ namespace max {
 
 	#define CLASS_ATTR_LONG(c,attrname,flags,structname,structmember) \
 			{		\
-				class_addattr((c),attr_offset_new(attrname, gensym(long),(flags),(method)0L,(method)0L,calcoffset(structname,structmember))); \
+				class_addattr((c),attr_offset_new(attrname, c74::max::gensym(long),(flags),(method)0L,(method)0L,calcoffset(structname,structmember))); \
 			}
 
 
 	#define CLASS_ATTR_FILEPATH(c,attrname,flags,structname,structmember) \
 			{		\
-				class_addattr((c),attr_offset_new(attrname, gensym(filepath),(flags),(method)0L,(method)0L,calcoffset(structname,structmember))); \
+				class_addattr((c),attr_offset_new(attrname, c74::max::gensym(filepath),(flags),(method)0L,(method)0L,calcoffset(structname,structmember))); \
 			}
 
 	/**
@@ -74,7 +74,7 @@ namespace max {
 		@param	structmember	The C identifier of the member in the struct that holds the value of this attribute.
 	*/
 	#define CLASS_ATTR_FLOAT(c,attrname,flags,structname,structmember) \
-		class_addattr((c),attr_offset_new(attrname, gensym("float32"),(flags),(method)0L,(method)0L,calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_new(attrname, c74::max::gensym("float32"),(flags),(method)0L,(method)0L,calcoffset(structname,structmember)))
 
 
 	/**
@@ -88,7 +88,7 @@ namespace max {
 		@param	structmember	The C identifier of the member in the struct that holds the value of this attribute.
 	*/
 	#define CLASS_ATTR_DOUBLE(c,attrname,flags,structname,structmember) \
-		class_addattr((c),attr_offset_new(attrname, gensym("float64"),(flags),(method)0L,(method)0L,calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_new(attrname, c74::max::gensym("float64"),(flags),(method)0L,(method)0L,calcoffset(structname,structmember)))
 
 
 	/**
@@ -102,7 +102,7 @@ namespace max {
 		@param	structmember	The C identifier of the member in the struct that holds the value of this attribute.
 	*/
 	#define CLASS_ATTR_SYM(c,attrname,flags,structname,structmember) \
-		class_addattr((c),attr_offset_new(attrname, gensym("symbol"),(flags),(method)0L,(method)0L,calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_new(attrname, c74::max::gensym("symbol"),(flags),(method)0L,(method)0L,calcoffset(structname,structmember)))
 
 
 	/**
@@ -116,7 +116,7 @@ namespace max {
 		@param	structmember	The C identifier of the member in the struct that holds the value of this attribute.
 	*/
 	#define CLASS_ATTR_ATOM(c,attrname,flags,structname,structmember) \
-		class_addattr((c),attr_offset_new(attrname, gensym("atom"),(flags),(method)0L,(method)0L,calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_new(attrname, c74::max::gensym("atom"),(flags),(method)0L,(method)0L,calcoffset(structname,structmember)))
 
 
 	/**
@@ -130,7 +130,7 @@ namespace max {
 		@param	structmember	The C identifier of the member in the struct that holds the value of this attribute.
 	*/
 	#define CLASS_ATTR_OBJ(c,attrname,flags,structname,structmember) \
-		class_addattr((c),attr_offset_new(attrname, gensym("object"),(flags),(method)0L,(method)0L,calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_new(attrname, c74::max::gensym("object"),(flags),(method)0L,(method)0L,calcoffset(structname,structmember)))
 
 
 
@@ -147,7 +147,7 @@ namespace max {
 		@param	size			The number of chars in the array.
 	*/
 	#define CLASS_ATTR_CHAR_ARRAY(c,attrname,flags,structname,structmember,size) \
-		class_addattr((c),attr_offset_array_new(attrname, gensym(char),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_array_new(attrname, c74::max::gensym(char),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember)))
 
 
 	/**
@@ -163,7 +163,7 @@ namespace max {
 	*/
 	#define CLASS_ATTR_LONG_ARRAY(c,attrname,flags,structname,structmember,size) \
 			{		\
-				class_addattr((c),attr_offset_array_new(attrname, gensym(long),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember))); \
+				class_addattr((c),attr_offset_array_new(attrname, c74::max::gensym(long),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember))); \
 			}
 
 	/**
@@ -178,7 +178,7 @@ namespace max {
 		@param	size			The number of floats in the array.
 	*/
 	#define CLASS_ATTR_FLOAT_ARRAY(c,attrname,flags,structname,structmember,size) \
-		class_addattr((c),attr_offset_array_new(attrname, gensym(float32),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_array_new(attrname, c74::max::gensym(float32),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember)))
 
 
 	/**
@@ -193,7 +193,7 @@ namespace max {
 		@param	size			The number of doubles in the array.
 	*/
 	#define CLASS_ATTR_DOUBLE_ARRAY(c,attrname,flags,structname,structmember,size) \
-		class_addattr((c),attr_offset_array_new(attrname, gensym(float64),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_array_new(attrname, c74::max::gensym(float64),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember)))
 
 
 	/**
@@ -208,7 +208,7 @@ namespace max {
 		@param	size			The number of items in the #t_symbol* array.
 	*/
 	#define CLASS_ATTR_SYM_ARRAY(c,attrname,flags,structname,structmember,size) \
-		class_addattr((c),attr_offset_array_new(attrname, gensym(symbol),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_array_new(attrname, c74::max::gensym("symbol"),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember)))
 
 
 	/**
@@ -223,7 +223,7 @@ namespace max {
 		@param	size			The number of items in the #t_atom array.
 	*/
 	#define CLASS_ATTR_ATOM_ARRAY(c,attrname,flags,structname,structmember,size) \
-		class_addattr((c),attr_offset_array_new(attrname, gensym(atom),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_array_new(attrname, c74::max::gensym("atom"),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember)))
 
 
 	/**
@@ -238,7 +238,7 @@ namespace max {
 		@param	size			The number of items in the #t_object* array.
 	*/
 	#define CLASS_ATTR_OBJ_ARRAY(c,attrname,flags,structname,structmember,size) \
-		class_addattr((c),attr_offset_array_new(attrname, gensym(object),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_array_new(attrname, c74::max::gensym(object),(size),(flags),(method)0L,(method)0L,0/*fix*/,calcoffset(structname,structmember)))
 
 
 
@@ -256,7 +256,7 @@ namespace max {
 		@param	maxsize			The maximum number of items in the char array, i.e. the number of members allocated for the array in the struct.
 	*/
 	#define CLASS_ATTR_CHAR_VARSIZE(c,attrname,flags,structname,structmember,sizemember,maxsize) \
-		class_addattr((c),attr_offset_array_new(attrname, gensym(char),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_array_new(attrname, c74::max::gensym(char),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember)))
 
 
 	/**
@@ -273,7 +273,7 @@ namespace max {
 	*/
 	#define CLASS_ATTR_LONG_VARSIZE(c,attrname,flags,structname,structmember,sizemember,maxsize) \
 			{		\
-				class_addattr((c),attr_offset_array_new(attrname, gensym(long),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember))); \
+				class_addattr((c),attr_offset_array_new(attrname, c74::max::gensym(long),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember))); \
 			}
 
 	/**
@@ -289,7 +289,7 @@ namespace max {
 		@param	maxsize			The maximum number of items in the float array, i.e. the number of members allocated for the array in the struct.
 	*/
 	#define CLASS_ATTR_FLOAT_VARSIZE(c,attrname,flags,structname,structmember,sizemember,maxsize) \
-		class_addattr((c),attr_offset_array_new(attrname, gensym(float32),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_array_new(attrname, c74::max::gensym(float32),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember)))
 
 
 	/**
@@ -305,7 +305,7 @@ namespace max {
 		@param	maxsize			The maximum number of items in the double array, i.e. the number of members allocated for the array in the struct.
 	*/
 	#define CLASS_ATTR_DOUBLE_VARSIZE(c,attrname,flags,structname,structmember,sizemember,maxsize) \
-		class_addattr((c),attr_offset_array_new(attrname, gensym(float64),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_array_new(attrname, c74::max::gensym(float64),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember)))
 
 
 	/**
@@ -321,7 +321,7 @@ namespace max {
 		@param	maxsize			The maximum number of items in the #t_symbol* array, i.e. the number of members allocated for the array in the struct.
 	*/
 	#define CLASS_ATTR_SYM_VARSIZE(c,attrname,flags,structname,structmember,sizemember,maxsize) \
-		class_addattr((c),attr_offset_array_new(attrname, gensym(symbol),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_array_new(attrname, c74::max::gensym("symbol"),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember)))
 
 
 	/**
@@ -337,7 +337,7 @@ namespace max {
 		@param	maxsize			The maximum number of items in the #t_atom array, i.e. the number of members allocated for the array in the struct.
 	*/
 	#define CLASS_ATTR_ATOM_VARSIZE(c,attrname,flags,structname,structmember,sizemember,maxsize) \
-		class_addattr((c),attr_offset_array_new(attrname, gensym(atom),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_array_new(attrname, c74::max::gensym("atom"),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember)))
 
 
 	/**
@@ -353,7 +353,7 @@ namespace max {
 		@param	maxsize			The maximum number of items in the #t_object* array, i.e. the number of members allocated for the array in the struct.
 	*/
 	#define CLASS_ATTR_OBJ_VARSIZE(c,attrname,flags,structname,structmember,sizemember,maxsize) \
-		class_addattr((c),attr_offset_array_new(attrname, gensym(object),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember)))
+		class_addattr((c),attr_offset_array_new(attrname, c74::max::gensym(object),(maxsize),(flags),(method)0L,(method)0L,calcoffset(structname,sizemember),calcoffset(structname,structmember)))
 
 
 	/**
@@ -438,9 +438,9 @@ namespace max {
 		{	t_object* thealias; \
 			t_object* theattr=(t_object* )class_attr_get(c,gensym(attrname)); \
 			thealias = object_clone(theattr); \
-			object_method(thealias, gensym(setname),gensym(aliasname)); \
+			object_method(thealias, c74::max::gensym(setname),gensym(aliasname)); \
 			class_addattr(c,thealias); \
-			CLASS_ATTR_ATTR_PARSE(c,aliasname,"alias", gensym(symbol),0,attrname); }
+			CLASS_ATTR_ATTR_PARSE(c,aliasname,"alias", c74::max::gensym("symbol"),0,attrname); }
 
 
 
@@ -463,7 +463,7 @@ namespace max {
 		@param	parsestr		A C-string, which will be parsed into an array of atoms to set the initial value.
 	*/
 	#define CLASS_ATTR_DEFAULT(c,attrname,flags,parsestr) \
-		{ t_object* theattr=(t_object* )class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"default",(t_symbol* )object_method(theattr, gensym(gettype)),flags,parsestr); }
+		{ t_object* theattr=(t_object* )class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"default",(t_symbol* )object_method(theattr, c74::max::gensym(gettype)),flags,parsestr); }
 
 
 	/**
@@ -475,7 +475,7 @@ namespace max {
 		@param	flags			Any flags you wish to declare for this new attribute, as defined in #e_max_attrflags.
 	*/
 	#define CLASS_ATTR_SAVE(c,attrname,flags) \
-		CLASS_ATTR_ATTR_PARSE(c,attrname,"save", gensym(long),flags,"1")
+		CLASS_ATTR_ATTR_PARSE(c,attrname,"save", c74::max::gensym(long),flags,"1")
 
 	/**
 		Add a new attribute to the specified attribute to indicate that it is saved by the object 
@@ -487,7 +487,7 @@ namespace max {
 		@param		flags		Any flags you wish to declare for this new attribute, as defined in #e_max_attrflags.
 	 */
 	#define CLASS_ATTR_SELFSAVE(c,attrname,flags) \
-	CLASS_ATTR_ATTR_PARSE(c,attrname,"selfsave", gensym(long),flags,"1")
+	CLASS_ATTR_ATTR_PARSE(c,attrname,"selfsave", c74::max::gensym(long),flags,"1")
 
 	/**
 		A convenience wrapper for both #CLASS_ATTR_DEFAULT and #CLASS_ATTR_SAVE.
@@ -518,7 +518,7 @@ namespace max {
 		@param	parsestr		A C-string, which will be parsed into an array of atoms to set the initial value.
 	*/
 	#define CLASS_ATTR_DEFAULTNAME(c,attrname,flags,parsestr) \
-		{ t_object* theattr=(t_object* )class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"defaultname",(t_symbol* )object_method(theattr, gensym(gettype)),flags,parsestr); }
+		{ t_object* theattr=(t_object* )class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"defaultname",(t_symbol* )object_method(theattr, c74::max::gensym(gettype)),flags,parsestr); }
 
 
 	/**
@@ -550,7 +550,7 @@ namespace max {
 		@see	CLASS_ATTR_FILTER_CLIP
 	*/
 	#define CLASS_ATTR_MIN(c,attrname,flags,parsestr) \
-	  { t_object* theattr=(t_object* )class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"min",(t_symbol* )object_method(theattr, gensym(gettype)),flags,parsestr); } 
+	  { t_object* theattr=(t_object* )class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"min",(t_symbol* )object_method(theattr, c74::max::gensym(gettype)),flags,parsestr); } 
 
 
 	/**
@@ -567,7 +567,7 @@ namespace max {
 		@see	CLASS_ATTR_FILTER_CLIP
 	*/
 	#define CLASS_ATTR_MAX(c,attrname,flags,parsestr) \
-	  { t_object* theattr=(t_object* )class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"max",(t_symbol* )object_method(theattr, gensym(gettype)),flags,parsestr); } 
+	  { t_object* theattr=(t_object* )class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"max",(t_symbol* )object_method(theattr, c74::max::gensym(gettype)),flags,parsestr); } 
 
 
 	// useful attr attr macros for UI objects
@@ -582,7 +582,7 @@ namespace max {
 		@param	flags			Any flags you wish to declare for this new attribute, as defined in #e_max_attrflags.
 	*/
 	#define CLASS_ATTR_PAINT(c,attrname,flags) \
-		CLASS_ATTR_ATTR_PARSE(c,attrname,"paint", gensym(long),flags,"1")
+		CLASS_ATTR_ATTR_PARSE(c,attrname,"paint", c74::max::gensym(long),flags,"1")
 
 
 	/**
@@ -672,7 +672,7 @@ namespace max {
 		@param	parsestr		A C-string, which will be parsed into an array of atoms to set the initial value.
 	*/
 	#define CLASS_ATTR_STYLE(c,attrname,flags,parsestr) \
-		CLASS_ATTR_ATTR_PARSE(c,attrname,"style", gensym(symbol),flags,parsestr)
+		CLASS_ATTR_ATTR_PARSE(c,attrname,"style", c74::max::gensym("symbol"),flags,parsestr)
 
 
 	/**
@@ -685,7 +685,7 @@ namespace max {
 		@param	labelstr		A C-string, which will be parsed into an array of atoms to set the initial value.
 	*/
 	#define CLASS_ATTR_LABEL(c,attrname,flags,labelstr) \
-		CLASS_ATTR_ATTR_FORMAT(c,attrname,"label", gensym(symbol),flags,"s",gensym_tr(labelstr))	
+		CLASS_ATTR_ATTR_FORMAT(c,attrname,"label", c74::max::gensym("symbol"),flags,"s",c74::max::gensym_tr(labelstr))
 
 
 	/**
@@ -706,7 +706,7 @@ namespace max {
 		@see	CLASS_ATTR_ENUMINDEX
 	*/
 	#define CLASS_ATTR_ENUM(c,attrname,flags,parsestr) \
-		{ CLASS_ATTR_STYLE(c,attrname,flags,"enum"); CLASS_ATTR_ATTR_PARSE(c,attrname,"enumvals", gensym(atom),flags,parsestr); }
+		{ CLASS_ATTR_STYLE(c,attrname,flags,"enum"); CLASS_ATTR_ATTR_PARSE(c,attrname,"enumvals", c74::max::gensym("atom"),flags,parsestr); }
 
 
 	/**
@@ -727,35 +727,35 @@ namespace max {
 		@see	CLASS_ATTR_ENUM
 	*/
 	#define CLASS_ATTR_ENUMINDEX(c,attrname,flags,parsestr) \
-		{ CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); CLASS_ATTR_ATTR_PARSE(c,attrname,"enumvals", gensym(atom),flags,parsestr); }
+		{ CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); CLASS_ATTR_ATTR_PARSE(c,attrname,"enumvals", c74::max::gensym("atom"),flags,parsestr); }
 
 	// localizable versions
 	#define CLASS_ATTR_ENUMINDEX2(c,attrname,flags,enum1,enum2) \
-	{ t_atom aaa[2]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); \
-	CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals", gensym(atom),flags,2,aaa); }
+	{ t_atom aaa[2]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,c74::max::gensym_tr(enum1)); atom_setsym(aaa+1,c74::max::gensym_tr(enum2)); \
+	CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals", c74::max::gensym("atom"),flags,2,aaa); }
 		
 	#define CLASS_ATTR_ENUMINDEX3(c,attrname,flags,enum1,enum2,enum3) \
-	{ t_atom aaa[3]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3));\
-	CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals", gensym(atom),flags,3,aaa); }
+	{ t_atom aaa[3]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,c74::max::gensym_tr(enum1)); atom_setsym(aaa+1,c74::max::gensym_tr(enum2)); atom_setsym(aaa+2,c74::max::gensym_tr(enum3));\
+	CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals", c74::max::gensym("atom"),flags,3,aaa); }
 		
 	#define CLASS_ATTR_ENUMINDEX4(c,attrname,flags,enum1,enum2,enum3,enum4) \
-	{ t_atom aaa[4]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3)); atom_setsym(aaa+3,gensym_tr(enum4));\
-	CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals", gensym(atom),flags,4,aaa); }
+	{ t_atom aaa[4]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,c74::max::gensym_tr(enum1)); atom_setsym(aaa+1,c74::max::gensym_tr(enum2)); atom_setsym(aaa+2,c74::max::gensym_tr(enum3)); atom_setsym(aaa+3,c74::max::gensym_tr(enum4));\
+	CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals", c74::max::gensym("atom"),flags,4,aaa); }
 		
 	#define CLASS_ATTR_ENUMINDEX5(c,attrname,flags,enum1,enum2,enum3,enum4,enum5) \
-	{ t_atom aaa[5]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3));\
-	atom_setsym(aaa+3,gensym_tr(enum4)); atom_setsym(aaa+4,gensym_tr(enum5));\
-	CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals", gensym(atom),flags,5,aaa); }
+	{ t_atom aaa[5]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,c74::max::gensym_tr(enum1)); atom_setsym(aaa+1,c74::max::gensym_tr(enum2)); atom_setsym(aaa+2,c74::max::gensym_tr(enum3));\
+	atom_setsym(aaa+3,c74::max::gensym_tr(enum4)); atom_setsym(aaa+4,c74::max::gensym_tr(enum5));\
+	CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals", c74::max::gensym("atom"),flags,5,aaa); }
 		
 	#define CLASS_ATTR_ENUMINDEX6(c,attrname,flags,enum1,enum2,enum3,enum4,enum5,enum6) \
-	{ t_atom aaa[6]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3));\
-	atom_setsym(aaa+3,gensym_tr(enum4)); atom_setsym(aaa+4,gensym_tr(enum5)); atom_setsym(aaa+5,gensym_tr(enum6));\
-	CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals", gensym(atom),flags,6,aaa); }
+	{ t_atom aaa[6]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,c74::max::gensym_tr(enum1)); atom_setsym(aaa+1,c74::max::gensym_tr(enum2)); atom_setsym(aaa+2,c74::max::gensym_tr(enum3));\
+	atom_setsym(aaa+3,c74::max::gensym_tr(enum4)); atom_setsym(aaa+4,c74::max::gensym_tr(enum5)); atom_setsym(aaa+5,c74::max::gensym_tr(enum6));\
+	CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals", c74::max::gensym("atom"),flags,6,aaa); }
 		
 	#define CLASS_ATTR_ENUMINDEX7(c,attrname,flags,enum1,enum2,enum3,enum4,enum5,enum6,enum7) \
-	{ t_atom aaa[7]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,gensym_tr(enum1)); atom_setsym(aaa+1,gensym_tr(enum2)); atom_setsym(aaa+2,gensym_tr(enum3));\
-	atom_setsym(aaa+3,gensym_tr(enum4)); atom_setsym(aaa+4,gensym_tr(enum5)); atom_setsym(aaa+5,gensym_tr(enum6)); atom_setsym(aaa+6,gensym_tr(enum7));\
-	CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals", gensym(atom),flags,7,aaa); }
+	{ t_atom aaa[7]; CLASS_ATTR_STYLE(c,attrname,flags,"enumindex"); atom_setsym(aaa,c74::max::gensym_tr(enum1)); atom_setsym(aaa+1,c74::max::gensym_tr(enum2)); atom_setsym(aaa+2,c74::max::gensym_tr(enum3));\
+	atom_setsym(aaa+3,c74::max::gensym_tr(enum4)); atom_setsym(aaa+4,c74::max::gensym_tr(enum5)); atom_setsym(aaa+5,c74::max::gensym_tr(enum6)); atom_setsym(aaa+6,c74::max::gensym_tr(enum7));\
+	CLASS_ATTR_ATTR_ATOMS(c,attrname,"enumvals", c74::max::gensym("atom"),flags,7,aaa); }
 
 	/**
 		Add a new attribute to the specified attribute to specify a category to which the attribute is assigned
@@ -770,7 +770,7 @@ namespace max {
 		@param	parsestr		A C-string, which will be parsed into an array of atoms to set the initial value.
 	*/
 	#define CLASS_ATTR_CATEGORY(c,attrname,flags,parsestr) \
-		CLASS_ATTR_ATTR_PARSE(c,attrname,"category", gensym(symbol),flags,str_tr(parsestr))
+		CLASS_ATTR_ATTR_PARSE(c,attrname,"category", c74::max::gensym("symbol"),flags,str_tr(parsestr))
 
 
 	/**
@@ -788,7 +788,7 @@ namespace max {
 		@see	CLASS_ATTR_LABEL
 	*/
 	#define CLASS_ATTR_STYLE_LABEL(c,attrname,flags,stylestr,labelstr) \
-		{ CLASS_ATTR_ATTR_PARSE(c,attrname,"style", gensym(symbol),flags,stylestr); CLASS_ATTR_ATTR_FORMAT(c,attrname,"label", gensym(symbol),flags,"s",gensym_tr(labelstr)); }	
+		{ CLASS_ATTR_ATTR_PARSE(c,attrname,"style", c74::max::gensym("symbol"),flags,stylestr); CLASS_ATTR_ATTR_FORMAT(c,attrname,"label", c74::max::gensym("symbol"),flags,"s",c74::max::gensym_tr(labelstr)); }	
 
 
 	/**
@@ -800,7 +800,7 @@ namespace max {
 		@param	flags			Any flags you wish to declare for this new attribute, as defined in #e_max_attrflags.
 	*/
 	#define CLASS_ATTR_INVISIBLE(c,attrname,flags) \
-		CLASS_ATTR_ATTR_PARSE(c,attrname,"invisible", gensym(long),flags,"1")
+		CLASS_ATTR_ATTR_PARSE(c,attrname,"invisible", c74::max::gensym(long),flags,"1")
 
 
 	/**
@@ -820,7 +820,7 @@ namespace max {
 		@endcode
 	*/
 	#define CLASS_ATTR_ORDER(c,attrname,flags,parsestr) \
-		CLASS_ATTR_ATTR_PARSE(c,attrname,"order", gensym(long),flags,parsestr)
+		CLASS_ATTR_ATTR_PARSE(c,attrname,"order", c74::max::gensym(long),flags,parsestr)
 		
 	/**
 		Add a new attribute to the specified attribute to specify that it should appear in the inspector's Basic tab.  
@@ -832,7 +832,7 @@ namespace max {
  
 	 */
 	#define CLASS_ATTR_BASIC(c,attrname,flags) \
-	CLASS_ATTR_ATTR_PARSE(c,attrname,"basic", gensym(long),flags,"1")
+	CLASS_ATTR_ATTR_PARSE(c,attrname,"basic", c74::max::gensym(long),flags,"1")
 
 
 
@@ -840,7 +840,7 @@ namespace max {
 	// useful attr attr macro for objects that embed binary data as base64
 
 	#define CLASS_ATTR_ATOMARRAY(c,attrname,flags) \
-		CLASS_ATTR_ATTR_PARSE(c,attrname,"atomarray", gensym(long),flags,"1")
+		CLASS_ATTR_ATTR_PARSE(c,attrname,"atomarray", c74::max::gensym(long),flags,"1")
 
 
 	/**	Define and add attributes to class methods.
@@ -855,7 +855,7 @@ namespace max {
 		@remark An example which makes a method invisible to users:
 		@code
 		class_addmethod(c, (method)my_foo, "foo", 0);
-		CLASS_METHOD_ATTR_PARSE(c, "foo", "undocumented", gensym("long"), 0, "1");
+		CLASS_METHOD_ATTR_PARSE(c, "foo", "undocumented", c74::max::gensym("long"), 0, "1");
 		@endcode
 	*/
 	#define CLASS_METHOD_ATTR_PARSE(c,methodname,attrname,type,flags,parsestring) \
@@ -916,7 +916,7 @@ namespace max {
 	#define CLASS_STICKY_ATTR_CLEAR(c,name) class_sticky_clear(c,gensym("sticky_attr"),name?gensym(name):NULL)
 
 	#define CLASS_STICKY_CATEGORY(c,flags,name) \
-	{ t_object* attr = attribute_new_format("category",NULL,flags,"s",gensym_tr(name)); class_sticky(c,gensym("sticky_attr"),gensym("category"),attr); }
+	{ t_object* attr = attribute_new_format("category",NULL,flags,"s",c74::max::gensym_tr(name)); class_sticky(c,gensym("sticky_attr"),gensym("category"),attr); }
 
 	#define CLASS_STICKY_CATEGORY_CLEAR(c) class_sticky_clear(c,gensym("sticky_attr"),gensym("category"))
 
@@ -1263,12 +1263,12 @@ namespace max {
 
 	/**	The namespace for all Max object classes which can be instantiated in a box, i.e. in a patcher.
 		@ingroup class */
-	static const t_symbol* CLASS_BOX = gensym("box");
+	static const t_symbol* CLASS_BOX = c74::max::gensym("box");
 
 	/**	A namespace for creating hidden or internal object classes which are not a direct part of the user 
 		creating patcher.
 		@ingroup class */
-	static const t_symbol* CLASS_NOBOX = gensym("nobox");
+	static const t_symbol* CLASS_NOBOX = c74::max::gensym("nobox");
 
 
 	/** Attribute flags
@@ -1533,7 +1533,7 @@ namespace max {
 		@remark 		For instance, to determine whether an unknown object pointer is a pointer to a print object, one would call:
 
 		@code
-		long isprint = object_classname_compare(x, gensym("print"));
+		long isprint = object_classname_compare(x, c74::max::gensym("print"));
 		@endcode
 	*/
 	long object_classname_compare(void* x, t_symbol* name);
@@ -1652,7 +1652,7 @@ namespace max {
 		double x = 44.73;
 		double y = 79.21;
 		t_object* pwindow;
-		t_jrgba result = object_method_direct(t_jrgba, (t_object* , double, double), pwindow, gensym("getcolorat"), x, y);
+		t_jrgba result = object_method_direct(t_jrgba, (t_object* , double, double), pwindow, c74::max::gensym("getcolorat"), x, y);
 		@endcode
 	*/
 		
@@ -2249,8 +2249,8 @@ namespace max {
 			t_box *b;
 			t_max_err err;
 
-			err = object_obex_lookup(x, gensym("#P"), (t_object** )&p);
-			err = object_obex_lookup(x, gensym("#B"), (t_object** )&b);
+			err = object_obex_lookup(x, c74::max::gensym("#P"), (t_object** )&p);
+			err = object_obex_lookup(x, c74::max::gensym("#B"), (t_object** )&b);
 
 			post("my patcher is located at 0x%X", p);
 			post("my box is located at 0x%X", b);

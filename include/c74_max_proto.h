@@ -128,6 +128,7 @@ namespace max {
 		@return		A pointer to the #t_symbol in the symbol table.
 	*/
 	t_symbol* gensym(const char* s);
+	t_symbol* gensym_tr(const char* s);
 
 
 	/**	Print text to the system console.
