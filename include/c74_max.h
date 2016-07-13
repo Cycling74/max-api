@@ -177,7 +177,7 @@ namespace max {
 #include "c74_max_dictionary.h"
 #include "c74_max_object.h"
 #include "c74_max_dictobj.h"
-
+#include "c74_max_time.h"
 
 
 BEGIN_USING_C_LINKAGE
