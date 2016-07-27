@@ -43,6 +43,10 @@ elseif (WIN32)
 	else ()
 		set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".mxe")
 	endif ()
+
+	# warning about constexpr not being const in c++14
+	set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS "/wd4814")
+
 endif ()
 
 
