@@ -63,6 +63,21 @@ namespace max {
 	};
 
 
+	static const int TYPELIST_SIZE = 32; //maximum number of types returned
+	typedef enum {
+		TYPELIST_MAXFILES		= 1,
+		TYPELIST_EXTERNS		= 2,
+		TYPELIST_COLLECTIVES	= 4,
+		TYPELIST_MAXFORLIVE		= 8,
+		TYPELIST_SNAPSHOTS		= 16,
+		TYPELIST_GENPATCHERS	= 32,
+		TYPELIST_SNIPPETS		= 64
+	} e_max_typelists;
+
+	void typelist_make(t_fourcc *types, long include, short *numtypes);
+
+
+
 	/**	Flags used to represent properties of a file in a #t_fileinfo struct.
 		@ingroup files
 	*/
