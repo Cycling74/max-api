@@ -11,6 +11,51 @@ namespace max {
 
 	BEGIN_USING_C_LINKAGE
 
+    /**
+        Release the memory used by a Max object.
+        freeobject() calls an object's free function, if any, then disposes the
+        memory used by the object itself. freeobject() should be used on any
+        instance of a standard Max object data structure, with the exception of
+        Qelems and Atombufs. Clocks, Binbufs, Proxies, Exprs, etc. should be freed with freeobject().
+
+        @ingroup	class_old
+        @param		op	The object instance pointer to free.
+
+        @remark		This function can be replaced by the use of object_free().
+        Unlike freeobject(), object_free() checkes to make sure the pointer is
+        not NULL before trying to free it.
+
+        @see newobject()
+        @see object_free()
+    */
+    void freeobject(t_object *op);
+
+
+    /** Make a new instance of an existing Max class.
+        @ingroup class_old
+
+        @param s	className Symbol specifying the name of the class of the instance to be created.
+        @param argc	Count of arguments in argv.
+        @param argv	Array of t_atoms; arguments to the class's instance creation function.
+
+        @return 	A pointer to the created object, or 0 if the class
+        didn't exist or there was another type of error in creating the instance.
+
+        @remark This function creates a new instance of the specified class. Using
+        newinstance is equivalent to typing something in a New Object box
+        when using Max. The difference is that no object box is created in any
+        Patcher window, and you can send messages to the object directly
+        without connecting any patch cords. The messages can either be type-
+        checked (using typedmess) or non-type-checked (using the members
+        of the getfn family).
+
+        This function is useful for taking advantage of other already-defined
+        objects that you would like to use 'privately' in your object, such as
+        tables. See the source code for the coll object for an example of using a
+        privately defined class. 
+    */
+    void *newinstance(t_symbol *s, short argc, t_atom *argv);
+
 
 	/**	Use the setup() function to initialize your class by informing Max of its size, 
 		the name of your functions that create and destroy instances, 
