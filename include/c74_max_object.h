@@ -3086,6 +3086,32 @@ namespace max {
 		@return				A Max error code 
 	 */				
 	t_max_err object_attr_touch(t_object* x, t_symbol* attrname);
+    
+    
+    /**
+     Get the disabled state for an attribute
+     
+     @ingroup obj
+     
+     @param 	x			The object owning the attribute
+     @param 	attrname	The attribute name
+     
+     @return				1 if disabled, otherwise 0
+     */
+    t_ptr_int object_attr_getdisabled(t_object *x, t_symbol *attrname);
+    
+    /**
+     Set the disabled state for an attribute
+     
+     @ingroup obj
+     
+     @param 	x			The object owning the attribute
+     @param 	attrname	The attribute name
+     @param     way         1 to disable attribute, 0 to enable it
+     
+     @return				A Max error code
+     */
+    t_max_err object_attr_setdisabled(t_object *x, t_symbol *attrname, long way);
 
 	
 	t_max_err object_retain(t_object *x);
