@@ -1536,7 +1536,8 @@ namespace max {
 	void jbox_redraw(t_jbox* b);
 
 
-	/**	Send a notification to a box.  This is the same as calling object_notify() for a box.
+	/**	Standard notification handler for a box (ui) object.
+		If you have a custom notification method then you should call this after your customized handling.
 		@ingroup		jbox
 		@param	b		The address of your object's #t_jbox member.
 		@param	s		The name of the send object.
