@@ -870,6 +870,17 @@ namespace max {
 	void fileusage_addfile(void* w, long flags, const char* name, const short path);
 
 	void fileusage_addfilename(void* w, long flags, const char* name);
+
+    /**	Add a package to a standalone.
+        @ingroup					files
+        @param	w					Handle for the standalone builder
+        @param	name				The name of the package
+        @param	subfoldernames		A #t_atomarray containing symbols, each of which is a foldername in the package to include.
+        Pass NULL to include the entire package contents.
+        @version					Introduced in Max 7.0.4
+    */
+    void fileusage_addpackage(void *w, const char *name, t_object *subfoldernames);
+
 	void fileusage_addpathname(void* w, long flags, const char* name);
 	void fileusage_copyfolder(void* w, const char* name, long recursive);
 	void fileusage_makefolder(void* w, const char* name);

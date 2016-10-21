@@ -1519,7 +1519,7 @@ namespace max {
 	t_max_err class_dumpout_wrap(t_class* c);
 
 	t_class* class_getifloaded(t_symbol* name_space, t_symbol* classname);
-	t_class* class_getifloaded_casefree(t_symbol* name_space, t_symbol* classname);
+	t_class* class_getifloaded_casefree(const t_symbol* name_space, const t_symbol* classname);
 
 
 	/**
