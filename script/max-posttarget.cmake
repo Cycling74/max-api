@@ -38,7 +38,7 @@ elseif (WIN32)
 	target_link_libraries(${PROJECT_NAME} ${MaxAudio_LIB})
 	target_link_libraries(${PROJECT_NAME} ${Jitter_LIB})
 
-	if (WIN64)
+	if (CMAKE_SIZEOF_VOID_P EQUAL 8)
 		set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".mxe64")
 	else ()
 		set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".mxe")
