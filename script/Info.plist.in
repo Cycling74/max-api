@@ -17,6 +17,12 @@
 	<string>iLaX</string>
 	<key>CFBundleSignature</key>
 	<string>max2</string>
+
+	<key>C74ObjectProperties</key>
+	<dict>
+		<key>c74excludefromcollectives</key>
+		<string>@EXCLUDE_FROM_COLLECTIVES@</string>
+	</dict>
 	
 	<key>CFBundleVersion</key>
 	<string>@GIT_VERSION_MAJ@.@GIT_VERSION_MIN@.@GIT_VERSION_SUB@</string>
