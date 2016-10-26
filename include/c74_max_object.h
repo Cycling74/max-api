@@ -1847,7 +1847,7 @@ namespace max {
 		@see		object_register() 
 		@see		object_attach_byptr()
 	*/		
-	t_max_err object_attach_byptr_register(void* x, void* object_to_attach, t_symbol* reg_name_space);
+	t_max_err object_attach_byptr_register(void* x, void* object_to_attach, const t_symbol* reg_name_space);
 
 
 	/**
@@ -1971,7 +1971,7 @@ namespace max {
 						<tt>data</tt> is an optional argument sent with the message. 
 						This value corresponds to the data argument in the object_notify() method. 
 	*/
-	t_max_err object_notify(void* x, t_symbol* s, void* data);
+	t_max_err object_notify(void* x, const t_symbol* s, void* data);
 
 
 	/**
