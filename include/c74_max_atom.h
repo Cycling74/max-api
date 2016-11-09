@@ -226,13 +226,13 @@ namespace max {
 	///	@ingroup	atom
 	///	@param		a				The address of the atom to test.
 	///	@return		Returns true if the #t_atom contains a valid #t_atomarray object.
-	long atomisatomarray(t_atom* a);
+	long atomisatomarray(const t_atom* a);
 
 	///	Determines whether or not an atom represents a #t_dictionary object.
 	///	@ingroup	atom
 	///	@param		a				The address of the atom to test.
 	///	@return		Returns true if the #t_atom contains a valid #t_dictionary object.
-	long atomisdictionary(t_atom* a);
+	long atomisdictionary(const t_atom* a);
 
 	END_USING_C_LINKAGE
 

@@ -350,7 +350,7 @@ namespace max {
 		@param		flags			Options, see "Flags that determine time object behavior" above
 		@return					The newly created #t_timeobject.
 	*/
-	void *time_new(t_object *owner, t_symbol *attrname, method tick, long flags);
+	t_object *time_new(t_object *owner, t_symbol *attrname, method tick, long flags);
 
 	/**	Create a new time object.
 		@ingroup	time
@@ -363,7 +363,7 @@ namespace max {
 
 		@since 7.2.5
 	 */
-	void *time_new_custom(t_object *owner, t_symbol *attrname, method tick, long flags, void *baton);
+	t_object *time_new_custom(t_object *owner, t_symbol *attrname, method tick, long flags, void *baton);
 
 	/**	Return a time object associated with an attribute of an owning object.
 		@ingroup	time

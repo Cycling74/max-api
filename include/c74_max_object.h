@@ -1547,7 +1547,7 @@ namespace max {
 	t_max_err class_extra_store(t_class* x,t_symbol* s,t_object* o);
 	t_max_err class_extra_storeflags(t_class* x, t_symbol* s, t_object* o, long flags);
 	void* class_extra_lookup(t_class* x, t_symbol* s);
-	t_max_err class_addtypedwrapper(t_class* x, method m, char* name, ...);
+	t_max_err class_addtypedwrapper(t_class* x, method m, const char* name, ...);
 	t_messlist *class_typedwrapper_get(t_class* x, t_symbol* s);
 	t_max_err object_addtypedwrapper(t_object* x, method m, char* name, ...);
 	t_messlist *object_typedwrapper_get(t_object* x, t_symbol* s);
@@ -2153,7 +2153,7 @@ namespace max {
 		@return 		This function returns the error code #MAX_ERR_NONE if successful, 
 		 				or one of the other error codes defined in #e_max_errorcodes if unsuccessful.
 	*/
-	t_max_err object_attr_setvalueof(void* x, t_symbol* s, long argc, t_atom* argv);
+	t_max_err object_attr_setvalueof(void* x, t_symbol* s, long argc, const t_atom* argv);
 
 
 	//object specific attributes(dynamically add/delete)

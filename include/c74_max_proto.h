@@ -436,7 +436,7 @@ namespace max {
 						lists, it might make sense to keep an array of t_atoms inside your 
 						object's data structure.	
 	*/
-	void* outlet_list(void* o, t_symbol* s, short ac, t_atom* av);
+	void* outlet_list(void* o, t_symbol* s, short ac, const t_atom* av);
 
 
 	/**	Use outlet_anything() to send any message out an outlet. 
@@ -475,7 +475,7 @@ namespace max {
 						Also, do not send lists using outlet_anything() with list as 
 						the selector argument. Use the outlet_list() function instead. 
 	*/
-	void* outlet_anything(void* o, t_symbol* s, short ac, t_atom* av);
+	void* outlet_anything(void* o, t_symbol* s, short ac, const t_atom* av);
 
 
 	// clock functions
@@ -577,7 +577,7 @@ namespace max {
 		@remark		Any kind of drawing or calling of Macintosh Toolbox routines that 
 					allocate or purge memory should be done in a Qelem function. 
 	*/
-	void* qelem_new(void* obj, method fn);
+	t_qelem* qelem_new(void* obj, method fn);
 
 
 	/**	Cause a Qelem to execute. 
@@ -592,7 +592,7 @@ namespace max {
 					than can be drawn. A Qelem object is unset after its queue function has 
 					been called.
 	*/
-	void qelem_set(void* q);
+	void qelem_set(t_qelem* q);
 
 
 	/**	Cancel a Qelem's execution. 
@@ -602,7 +602,7 @@ namespace max {
 		@ingroup qelems
 		@param	q	The Qelem whose execution you wish to cancel.
 	*/
-	void qelem_unset(void* q);
+	void qelem_unset(t_qelem* q);
 
 
 	/**	Free a Qelem object created with qelem_new().
@@ -611,7 +611,7 @@ namespace max {
 		@ingroup qelems
 		@param	x	The Qelem to destroy.
 	*/
-	void qelem_free(void* x);
+	void qelem_free(t_qelem* x);
 
 
 	/**	Cause a Qelem to execute with a higher priority.
@@ -623,7 +623,7 @@ namespace max {
 		@ingroup qelems
 		@param	x	The Qelem whose function will be executed in the main thread.
 	*/
-	void qelem_front(void* x);
+	void qelem_front(t_qelem* x);
 
 
 	/**	Defer execution of a function to the main thread if (and only if) 

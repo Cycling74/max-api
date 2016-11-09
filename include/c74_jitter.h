@@ -302,10 +302,10 @@ namespace max {
 	void max_jit_class_wrap_addmethods(t_class *mclass, t_class *jclass);
 	void max_jit_class_wrap_addmethods_flags(t_class *mclass, t_class *jclass, long flags);
 	void max_jit_class_wrap_attrlist2methods(t_class *mclass, t_class *jclass);
-	void max_jit_class_addmethod_defer(t_class *mclass, method m, char *s);
-	void max_jit_class_addmethod_defer_low(t_class *mclass, method m, char *s);
-	void max_jit_class_addmethod_usurp(t_class *mclass, method m, char *s);
-	void max_jit_class_addmethod_usurp_low(t_class *mclass, method m, char *s);	
+	void max_jit_class_addmethod_defer(t_class *mclass, method m, const char *s);
+	void max_jit_class_addmethod_defer_low(t_class *mclass, method m, const char *s);
+	void max_jit_class_addmethod_usurp(t_class *mclass, method m, const char *s);
+	void max_jit_class_addmethod_usurp_low(t_class *mclass, method m, const char *s);
 
 
 
