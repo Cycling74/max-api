@@ -40,7 +40,7 @@
 
 // These macros are used to ensure that Win32 builds of Max externals use a 2 byte struct packing.
 // On Mac and Win64 we use the default byte packing.
-#if ( defined(WIN_VERSION) && !defined(C74_X64) )
+#if ( defined(WIN_VERSION) && !defined(C74_X64) && !defined(TWOBLUECUBES_CATCH_HPP_INCLUDED))
 	#define C74_PRAGMA_STRUCT_PACKPUSH	1
 #else // MAC_VERSION or Win64
 	#define C74_PRAGMA_STRUCT_PACKPUSH	0
