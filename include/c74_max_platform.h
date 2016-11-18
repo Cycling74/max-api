@@ -38,9 +38,18 @@
 #endif // #ifdef MAC_VERSION
 
 
+// These macros are used to ensure that Win32 builds of Max externals use a 2 byte struct packing.
+// On Mac and Win64 we use the default byte packing.
+#if ( defined(WIN_VERSION) && !defined(C74_X64) )
+	#define C74_PRAGMA_STRUCT_PACKPUSH	1
+#else MAC_VERSION
+	#define C74_PRAGMA_STRUCT_PACKPUSH	0
+#endif
+
+
 // Types
 namespace c74 {
-	namespace max {
+namespace max {
 	typedef int 				t_int;
 	typedef unsigned int 		t_uint; 	///< an unsigned int as defined by the architecture / platform  @ingroup misc
 	typedef char 				t_int8; 	///< a 1-byte int  @ingroup misc
