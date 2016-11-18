@@ -42,7 +42,7 @@
 // On Mac and Win64 we use the default byte packing.
 #if ( defined(WIN_VERSION) && !defined(C74_X64) )
 	#define C74_PRAGMA_STRUCT_PACKPUSH	1
-#else MAC_VERSION
+#else // MAC_VERSION or Win64
 	#define C74_PRAGMA_STRUCT_PACKPUSH	0
 #endif
 
