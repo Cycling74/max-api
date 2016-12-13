@@ -463,3 +463,6 @@ namespace max {
 	END_USING_C_LINKAGE
 
 }} // namespace c74::max
+
+
+#include "jit.gl.h"
