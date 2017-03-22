@@ -174,6 +174,7 @@ namespace max {
 	*/
 	t_symbol* gensym(const char* s);
 	t_symbol* gensym_tr(const char* s);
+	char *str_tr(const char *s);
 
 
 	/**	Print text to the system console.
