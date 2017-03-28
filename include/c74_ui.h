@@ -7,6 +7,9 @@
 
 #include "c74_max.h"
 
+// This preprocessor symbol is required by the MSP headers
+#define _JPATCHER_API_H_
+
 namespace c74 {
 namespace max {
 
@@ -1515,7 +1518,7 @@ namespace max {
 		@param	argv	The address of the first in an array of atoms to be passed to the box constructor.
 						Typically these are simply the argument passed to your object when it is created.
 		@return			A Max error code.		*/
-	t_max_err jbox_new(t_jbox* b, long flags, long argc, t_atom* argv);
+	t_max_err jbox_new(t_jbox* b, long flags, long argc, const t_atom* argv);
 
 	/**	Tear down your UI object's #t_jbox member.
 	 	This should be called from your UI object's free method.

@@ -1365,7 +1365,7 @@ namespace max {
 										  double blue, 
 										  double alpha);
 
-	void		jgraphics_set_source_jrgba(t_jgraphics* g, char* rgba); 
+	void		jgraphics_set_source_jrgba(t_jgraphics* g, t_jrgba* rgba); 
 
 	void		jgraphics_set_source_rgb(t_jgraphics* g,
 										 double red,
