@@ -770,7 +770,7 @@ namespace max {
 		@param	parsestr		A C-string, which will be parsed into an array of atoms to set the initial value.
 	*/
 	#define CLASS_ATTR_CATEGORY(c,attrname,flags,parsestr) \
-		CLASS_ATTR_ATTR_PARSE(c,attrname,"category", c74::max::gensym("symbol"),flags,str_tr(parsestr))
+		CLASS_ATTR_ATTR_PARSE(c,attrname,"category", c74::max::gensym("symbol"),flags, c74::max::str_tr(parsestr))
 
 
 	/**
