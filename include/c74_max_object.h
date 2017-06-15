@@ -1568,29 +1568,13 @@ namespace max {
 	void* object_alloc(t_class* c);
 
 
-	/**
-		Allocates the memory for an instance of an object class and initialize its object header <em>internal to Max</em>. 
-		It is used similarly to the traditional function newinstance(), but its use is required with obex-class objects.
 
-		@ingroup obj
 
-		@param 	name_space	The desired object's name space. Typically, either the 
-		 					constant #CLASS_BOX, for obex classes which can 
-		 					instantiate inside of a Max patcher (e.g. boxes, UI objects, 
-		 					etc.), or the constant #CLASS_NOBOX, for classes 
-		 					which will only be used internally.
-		@param 	classname	The name of the class of the object to be created
-		@param 	...			Any arguments expected by the object class being instantiated
-
-		@return 			This function returns a new instance of the object class if successful, or NULL if unsuccessful.
-	*/
-	t_object* object_new(const t_symbol* name_space, const t_symbol* classname, ...);
-
-	#ifdef C74_X64
-		#define object_new(...) C74_VARFUN(object_new_imp, __VA_ARGS__)
-	#endif
 
 	t_object* object_new_imp(void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
+
+
+
 
 
 	/**
@@ -3150,5 +3134,61 @@ namespace max {
 			return nullptr;
 	}
 
-	
+
+
+	/**
+		Allocates the memory for an instance of an object class and initialize its object header <em>internal to Max</em>.
+		It is used similarly to the traditional function newinstance(), but its use is required with obex-class objects.
+
+		@ingroup obj
+
+		@param 	name_space	The desired object's name space. Typically, either the
+	 constant #CLASS_BOX, for obex classes which can
+	 instantiate inside of a Max patcher (e.g. boxes, UI objects,
+	 etc.), or the constant #CLASS_NOBOX, for classes
+	 which will only be used internally.
+		@param 	classname	The name of the class of the object to be created
+		@param 	...			Any arguments expected by the object class being instantiated
+
+		@return 			This function returns a new instance of the object class if successful, or NULL if unsuccessful.
+	 */
+	//	t_object* object_new(const t_symbol* name_space, const t_symbol* classname, ...);
+	//
+	//	#ifdef C74_X64
+	//		#define object_new(...) C74_VARFUN(object_new_imp, __VA_ARGS__)
+	//	#endif
+	//
+
+	inline t_object* object_new(const t_symbol* name_space, const t_symbol* classname) {
+		return object_new_imp((void*)name_space, (void*)classname,
+							  nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);
+	}
+
+	inline t_object* object_new(const t_symbol* name_space, const t_symbol* classname, void* arg1) {
+		return object_new_imp((void*)name_space, (void*)classname,
+							  arg1, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);
+	}
+
+	inline t_object* object_new(const t_symbol* name_space, const t_symbol* classname, void* arg1, void* arg2) {
+		return object_new_imp((void*)name_space, (void*)classname,
+							  arg1, arg2, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr);
+	}
+
+	inline t_object* object_new(const t_symbol* name_space, const t_symbol* classname, void* arg1, void* arg2, void* arg3) {
+		return object_new_imp((void*)name_space, (void*)classname,
+							  arg1, arg2, arg3, nullptr, nullptr, nullptr, nullptr, nullptr);
+	}
+
+	inline t_object* object_new(const t_symbol* name_space, const t_symbol* classname, void* arg1, void* arg2, void* arg3, void* arg4) {
+		return object_new_imp((void*)name_space, (void*)classname,
+							  arg1, arg2, arg3, arg4, nullptr, nullptr, nullptr, nullptr);
+	}
+
+	inline t_object* object_new(const t_symbol* name_space, const t_symbol* classname, void* arg1, void* arg2, void* arg3, void* arg4, void* arg5) {
+		return object_new_imp((void*)name_space, (void*)classname,
+							  arg1, arg2, arg3, arg4, arg5, nullptr, nullptr, nullptr);
+	}
+
+
+
 }} // namespace c74::max
