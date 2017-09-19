@@ -266,11 +266,11 @@ namespace max {
     void max_jit_obex_jitob_set(void *x, void *jitob);
     void max_jit_obex_dumpout_set(void *x, void *outlet);
     void *max_jit_obex_dumpout_get(void *x);
-    void max_jit_obex_dumpout(void *x, t_symbol *s, short argc, t_atom *argv);
+    void max_jit_obex_dumpout(void *x, const t_symbol *s, short argc, const t_atom *argv);
     void *max_jit_obex_adornment_get(void *x, t_symbol *classname);
     t_jit_err max_jit_obex_addadornment(void *x,void *adornment);
-    void max_jit_obex_gimmeback(void *x, t_symbol *s, long ac, t_atom *av);
-    void max_jit_obex_gimmeback_dumpout(void *x, t_symbol *s, long ac, t_atom *av);
+    void max_jit_obex_gimmeback(void *x, const t_symbol *s, long ac, const t_atom *av);
+    void max_jit_obex_gimmeback_dumpout(void *x, const t_symbol *s, long ac, const t_atom *av);
     t_jit_err max_jit_obex_proxy_new(void *x, long c);
     long max_jit_obex_inletnumber_get(void *x);
     void max_jit_obex_inletnumber_set(void *x, long inletnumber);
