@@ -54,7 +54,7 @@ namespace max {
         tables. See the source code for the coll object for an example of using a
         privately defined class.
     */
-    void *newinstance(t_symbol *s, short argc, t_atom *argv);
+    void *newinstance(const t_symbol *s, short argc, const t_atom *argv);
 
 
 	/**	Use the setup() function to initialize your class by informing Max of its size,
@@ -476,7 +476,7 @@ namespace max {
 						Also, do not send lists using outlet_anything() with list as
 						the selector argument. Use the outlet_list() function instead.
 	*/
-	void* outlet_anything(void* o, t_symbol* s, short ac, const t_atom* av);
+	void* outlet_anything(void* o, const t_symbol* s, short ac, const t_atom* av);
 
 
 	// clock functions
