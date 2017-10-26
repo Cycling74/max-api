@@ -289,7 +289,7 @@ namespace max {
 		@return				Returns non-zero if successful, and zero when there are no more files. 
 		@see				#e_max_path_folder_flags
 	*/
-	short path_foldernextfile(void* xx, t_symbol* filetype, char* name, short descend);
+	short path_foldernextfile(void* xx, t_fourcc* filetype, char* name, short descend);
 
 
 	/**	Complete a directory iteration.
