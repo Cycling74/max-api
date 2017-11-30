@@ -166,11 +166,13 @@ namespace max {
 		};
 	#endif
 	
-		
+
+#ifndef C74_MIN_API
 	template <typename T>
 	T clamp(T input, T low, T high) {
 		return std::min(std::max(input, low), high);
 	}
+#endif
 
 		
 }} // namespace c74::max
