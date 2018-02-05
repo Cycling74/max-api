@@ -1697,7 +1697,7 @@ namespace max {
 		@return 		This function returns the error code #MAX_ERR_NONE if successful, 
 		 				or one of the other error codes defined in #e_max_errorcodes if unsuccessful.
 	*/
-	t_max_err object_attr_getjrgba(void* ob, t_symbol* s, char* c);
+	t_max_err object_attr_getjrgba(void* ob, t_symbol* s, t_jrgba* c);
 
 
 	/**
@@ -1711,7 +1711,7 @@ namespace max {
 		@return 		This function returns the error code #MAX_ERR_NONE if successful, 
 		 				or one of the other error codes defined in #e_max_errorcodes if unsuccessful.
 	*/
-	t_max_err object_attr_setjrgba(void* ob, t_symbol* s, char* c);
+	t_max_err object_attr_setjrgba(void* ob, t_symbol* s, t_jrgba* c);
 
 
 	/**	Get the components of a color in an array of pre-allocated atoms.

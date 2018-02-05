@@ -835,6 +835,23 @@ namespace max {
 	CLASS_ATTR_ATTR_PARSE(c,attrname,"basic", c74::max::gensym("long"),flags,"1")
 
 
+	/**	Associate the name of an attribute of your class with the name of an attribute of a style.
+		@ingroup	styles
+		@param		c			The class whose attribute will be added to the style.
+		@param		attrname	The name of the attribute of your class.
+		@param		mapname		The name of the attribute from the style.
+		@see		'jslider' example project in the SDK.
+	*/
+	void class_attr_stylemap(t_class *c, const char *attrname, const char *mapname);
+		
+	
+	/**	Enable attributes whose name matches a style to use the style, 
+		even if there is a custom setter/getter for the attribute.
+		@ingroup	styles
+		@param		c			The class whose attribute will be added to the style.
+		@param		attrname	The name of the attribute of your class.
+	*/
+	void class_attr_setstyle(t_class *c, const char *name);
 
 	
 	// useful attr attr macro for objects that embed binary data as base64
