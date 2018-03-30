@@ -1,4 +1,7 @@
-// jit.gl.h
+/// @file
+///	@ingroup 	maxapi
+///	@copyright	Copyright 2018 The Max-API Authors. All rights reserved.
+///	@license	Use of this source code is governed by the MIT License found in the License.md file.
 
 #pragma once
 

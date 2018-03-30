@@ -1,5 +1,5 @@
-# Copyright (c) 2016, Cycling '74
-# Usage of this file and its contents is governed by the MIT License
+# Copyright 2018 The Max-API Authors. All rights reserved.
+# Use of this source code is governed by the MIT License found in the License.md file.
 
 string(REGEX REPLACE "(.*)/" "" THIS_FOLDER_NAME "${CMAKE_CURRENT_SOURCE_DIR}")
 
