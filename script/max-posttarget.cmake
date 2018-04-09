@@ -50,14 +50,19 @@ endif ()
 
 
 ### Post Build ###
+
 if (APPLE)
-	add_custom_command( 
-		TARGET ${PROJECT_NAME} 
-		POST_BUILD 
-		COMMAND cp "${CMAKE_CURRENT_LIST_DIR}/PkgInfo" "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/${EXTERN_OUTPUT_NAME}.mxo/Contents/PkgInfo" 
-		COMMENT "Copy PkgInfo" 
-	)
+    if ("${PROJECT_NAME}" MATCHES "_test")
+    else ()
+    	add_custom_command( 
+    		TARGET ${PROJECT_NAME} 
+    		POST_BUILD 
+    		COMMAND cp "${CMAKE_CURRENT_LIST_DIR}/PkgInfo" "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/${EXTERN_OUTPUT_NAME}.mxo/Contents/PkgInfo" 
+    		COMMENT "Copy PkgInfo" 
+    	)
+    endif ()    
 endif ()
+
 #if (WIN32)
 #	add_custom_command( 
 #		TARGET ${PROJECT_NAME} 
