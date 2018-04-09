@@ -32,7 +32,7 @@ if (APPLE)
 				 PROPERTY BUNDLE_EXTENSION "mxo")	
 	set_target_properties(${PROJECT_NAME} PROPERTIES XCODE_ATTRIBUTE_WRAPPER_EXTENSION "mxo")
 	set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_BUNDLE_VERSION "${GIT_VERSION_TAG}")
-    set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_LIST_DIR}/Info.plist.in)	
+    set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_LIST_DIR}/Info.plist.in)
 elseif (WIN32)
 	target_link_libraries(${PROJECT_NAME} PUBLIC ${MaxAPI_LIB})
 	target_link_libraries(${PROJECT_NAME} PUBLIC ${MaxAudio_LIB})
@@ -46,11 +46,18 @@ elseif (WIN32)
 
 	# warning about constexpr not being const in c++14
 	set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS "/wd4814")
-
 endif ()
 
 
 ### Post Build ###
+if (APPLE)
+	add_custom_command( 
+		TARGET ${PROJECT_NAME} 
+		POST_BUILD 
+		COMMAND cp "${CMAKE_CURRENT_LIST_DIR}/PkgInfo" "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/${EXTERN_OUTPUT_NAME}.mxo/Contents/PkgInfo" 
+		COMMENT "Copy PkgInfo" 
+	)
+endif ()
 #if (WIN32)
 #	add_custom_command( 
 #		TARGET ${PROJECT_NAME} 

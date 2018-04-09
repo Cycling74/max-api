@@ -48,7 +48,7 @@ if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/package-info.json.in")
 endif ()
 
 
-# Update Info.plist files on the Mac
+# Copy PkgInfo and update Info.plist files on the Mac
 if (APPLE)
 	message("Generating Info.plist")
 
