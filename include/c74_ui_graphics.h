@@ -1023,7 +1023,7 @@ namespace max {
 		@param	g		The graphics context for the textlayout.
 		@param	bgcolor	The background color for the textlayout.
 		@return			The new textlayout object.	*/
-	t_jtextlayout*	jtextlayout_withbgcolor(t_jgraphics* g, char* bgcolor); 
+	t_jtextlayout*	jtextlayout_withbgcolor(t_jgraphics* g, t_jrgba* bgcolor); 
 
 
 	/**	Release/free a textlayout object.	
@@ -1087,7 +1087,7 @@ namespace max {
 		@ingroup			textlayout
 		@param	textlayout	The textlayout object for which to set the color.	
 		@param	textcolor	The color for the text.			*/
-	void	  jtextlayout_settextcolor(t_jtextlayout* textlayout, char* textcolor); 
+	void	  jtextlayout_settextcolor(t_jtextlayout* textlayout, t_jrgba* textcolor); 
           
 
 	/**	Return a measurement of how much space will be required to draw the text of a textlayout.
@@ -1722,7 +1722,7 @@ namespace max {
 						for the red, green, blue, and alpha components.
 		@param	c		The address of a #t_jrgba struct from which the color components will be fetched.
 	*/
-	void jrgba_to_atoms(char* c, t_atom* argv);
+	void jrgba_to_atoms(t_jrgba* c, t_atom* argv);
 
 
 	/**	Set the components of a color by providing an array of atoms.
@@ -1737,7 +1737,7 @@ namespace max {
 		@param	argv	The address to the first of an array of atoms that define the color.
 		@param	c		The address of a #t_jrgba struct for which the color will be defined.
 		@return			A Max error code.		*/
-	t_max_err atoms_to_jrgba(long argc, t_atom* argv, char* c);
+	t_max_err atoms_to_jrgba(long argc, t_atom* argv, t_jrgba* c);
 
 
 	/**	Set the components of a color.
@@ -1747,14 +1747,14 @@ namespace max {
 		@param	g		The value of the green component in a range of [0.0, 1.0].
 		@param	b		The value of the blue component in a range of [0.0, 1.0].
 		@param	a		The value of the alpha component in a range of [0.0, 1.0].	*/
-	void jrgba_set(char* prgba, double r, double g, double b, double a);
+	void jrgba_set(t_jrgba* prgba, double r, double g, double b, double a);
 
 
 	/**	Copy a color.
 		@ingroup color
 		@param	dest	The address of a #t_jrgba struct to which the color will be copied.
 		@param	src		The address of a #t_jrgba struct from which the color will be copied.	*/
-	void jrgba_copy(char* dest, char* src);
+	void jrgba_copy(t_jrgba* dest, t_jrgba* src);
 
 
 	/**	Compare two colors for equality.
@@ -1762,7 +1762,7 @@ namespace max {
 		@param	rgba1	The address of a #t_jrgba struct to compare.
 		@param	rgba2	The address of another #t_jrgba struct to compare.
 		@return 		returns 1 if rgba1 == rgba2.	*/
-	long jrgba_compare(char* rgba1, char* rgba2);
+	long jrgba_compare(t_jrgba* rgba1, t_jrgba* rgba2);
 
 
 	/**	Get a list of of filetypes appropriate for use with jgraphics surfaces.
