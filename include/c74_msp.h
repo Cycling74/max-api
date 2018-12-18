@@ -19,11 +19,12 @@ namespace max {
 
 
 	// z_misc flags:
-		static const int Z_NO_INPLACE = 1;		///< flag indicating the object doesn't want signals in place @ingroup msp
-		static const int Z_PUT_LAST = 2;		///< when list of ugens is resorted, put this object at end @ingroup msp
-		static const int Z_PUT_FIRST = 4;		///< when list of ugens is resorted, put this object at beginning @ingroup msp
-		static const int Z_IGNORE_DISABLE = 8;	///< ignore the disable field, e.g. to process the pass~ object in a muted patcher.
-		static const int Z_DONT_ADD = 16;		///< ignore this object -- its dsp method won't be called.
+	static const int Z_NO_INPLACE = 1;		///< flag indicating the object doesn't want signals in place @ingroup msp
+	static const int Z_PUT_LAST = 2;		///< when list of ugens is resorted, put this object at end @ingroup msp
+	static const int Z_PUT_FIRST = 4;		///< when list of ugens is resorted, put this object at beginning @ingroup msp
+	static const int Z_IGNORE_DISABLE = 8;	///< ignore the disable field, e.g. to process the pass~ object in a muted patcher.
+	static const int Z_DONT_ADD = 16;		///< ignore this object -- its dsp method won't be called.
+	static const int Z_MC_INLETS = 32;		///< object knows how to count channels of incoming multi-channel signals
 
 	/**	Header for any non-ui signal processing object. 
 		For ui objects use #t_pxjbox.
