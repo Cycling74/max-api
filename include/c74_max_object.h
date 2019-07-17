@@ -22,6 +22,11 @@ namespace max {
 
 	BEGIN_USING_C_LINKAGE
 
+	
+	// old-school binbuf formatting...
+	void binbuf_vinsert(void *x, const char *fmt, ...);
+	void binbuf_insert(void *x, t_symbol *ignored, short argc, t_atom *argv);
+
 
 	// macros for attributes
 	// class attributes are almost universally attr_offset, except for class static attributes
