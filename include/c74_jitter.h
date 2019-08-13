@@ -205,6 +205,7 @@ namespace max {
 
 	void* max_jit_classex_setup(long oboffset);
 	void* jit_class_findbyname(t_symbol* classname);
+	t_jit_err max_jit_mop_notify(void *x, t_symbol *s, t_symbol *msg);
 	t_jit_err max_jit_mop_assist(void* x, void* b, long m, long a, char* s);
 	void max_jit_classex_standard_wrap(void* mclass, void* jclass, long flags);
 
