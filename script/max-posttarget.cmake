@@ -50,6 +50,9 @@ elseif (WIN32)
 
 	# warning about constexpr not being const in c++14
 	set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS "/wd4814")
+
+	# do not generate ILK files
+	set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "/INCREMENTAL:NO")
 endif ()
 
 
@@ -66,12 +69,3 @@ if (APPLE)
     	)
     endif ()    
 endif ()
-
-#if (WIN32)
-#	add_custom_command( 
-#		TARGET ${PROJECT_NAME} 
-#		POST_BUILD 
-#		COMMAND rm "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/${EXTERN_OUTPUT_NAME}.ilk" 
-#		COMMENT "ilk file cleanup" 
-#	)
-#endif ()
