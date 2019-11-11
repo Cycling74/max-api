@@ -10,37 +10,36 @@
 namespace c74 {
 namespace max {
 
-
-/** A hashtab entry. This struct is provided for debugging convenience,
-	but should be considered opaque and is subject to change without notice.
-
-	@ingroup hashtab
-	@see t_hashtab
-*/
-typedef struct _hashtab_entry
-{
-	t_object ob;
-	t_symbol *key;
-	t_object *value;
-	long flags;
-	struct _hashtab *parent;
-} t_hashtab_entry;
-
-/** The hashtab object. This struct is provided for debugging convenience,
-	but should be considered opaque and is subject to change without notice.
-
-	@ingroup hashtab
-	@see t_hashtab
-*/
-typedef struct _hashtab
-{
-	t_object ob;
-	long slotcount;
-	t_linklist **slots;
-	long readonly;
-	long flags;
-	void *reserved;
-} t_hashtab;
+	/** A hashtab entry. This struct is provided for debugging convenience,
+		but should be considered opaque and is subject to change without notice.
+	
+		@ingroup hashtab
+		@see t_hashtab
+	*/
+	typedef struct _hashtab_entry
+	{
+		t_object ob;
+		t_symbol *key;
+		t_object *value;
+		long flags;
+		struct _hashtab *parent;
+	} t_hashtab_entry;
+	
+	/** The hashtab object. This struct is provided for debugging convenience,
+		but should be considered opaque and is subject to change without notice.
+	
+		@ingroup hashtab
+		@see t_hashtab
+	*/
+	typedef struct _hashtab
+	{
+		t_object ob;
+		long slotcount;
+		t_linklist **slots;
+		long readonly;
+		long flags;
+		void *reserved;
+	} t_hashtab;
 
 
 	BEGIN_USING_C_LINKAGE
