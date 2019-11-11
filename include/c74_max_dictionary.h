@@ -443,7 +443,6 @@ namespace max {
 		@param		d		The dictionary instance.
 		@param		numkeys	The address of a long where the number of keys retrieved will be set.
 		@param		keys	The address of the first of an array #t_symbol pointers where the retrieved keys will be set.
-		@return				A max error code.
 		
 		@see 		dictionary_getkeys()
 	*/

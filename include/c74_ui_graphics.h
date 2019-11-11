@@ -1160,13 +1160,13 @@ namespace max {
 
 	/**	Set a #t_jmatrix to an affine transformation.
 		@ingroup	jmatrix
-		@param	x	
-		@param	xx	
-		@param	yx	
-		@param	xy	
-		@param	yy	
-		@param	x0	
-		@param	y0	
+		@param	x	x
+		@param	xx	xx
+		@param	yx	yx
+		@param	xy	xy
+		@param	yy	yy
+		@param	x0	x0
+		@param	y0	y0
 		@remark		given x,y the matrix specifies the following transformation:
 		@code
 		xnew = xx * x + xy * y + x0; 

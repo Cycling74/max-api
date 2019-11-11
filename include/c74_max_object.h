@@ -854,7 +854,7 @@ namespace max {
 		even if there is a custom setter/getter for the attribute.
 		@ingroup	styles
 		@param		c			The class whose attribute will be added to the style.
-		@param		attrname	The name of the attribute of your class.
+		@param		name	The name of the attribute of your class.
 	*/
 	void class_attr_setstyle(t_class *c, const char *name);
 
@@ -2306,8 +2306,6 @@ namespace max {
 		@param 	argc	Number of elements in the argument list in argv
 		@param 	argv	t_atoms constituting the message arguments
 
-		@return 		This function returns the error code #MAX_ERR_NONE if successful, 
-		 				or one of the other error codes defined in #e_max_errorcodes if unsuccessful.
 	*/
 	void object_obex_dumpout(void* x, const t_symbol* s, long argc, const t_atom* argv);
 

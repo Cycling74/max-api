@@ -211,7 +211,6 @@ namespace max {
 
 		@ingroup	atomarray
 		@param	x	The atomarray instance.
-		@return		The number of atoms in the array.
 	*/
 	void atomarray_clear(t_atomarray* x);
 
@@ -223,7 +222,6 @@ namespace max {
 		@param	x		The atomarray instance.
 		@param	fun		The function to call, specified as function pointer cast to a Max #method.
 		@param	arg		An argument that you would like to pass to the function being called.
-		@return			A max error code.
 	
 		@remark			The atomarray_funall() method will call your function for every item in the list.
 						It will pass both a pointer to the item in the list, and any argument that you

@@ -202,7 +202,7 @@ BEGIN_USING_C_LINKAGE
 ///	this shared/common prototype ensures that it will be exported correctly on all platforms.
 ///	@ingroup	class
 ///	@param		r	Pointer to resources for the external, if applicable.
-///	@see		@ref chapter_anatomy
+///	@see  		Anatomy of an Object
 ///	@version 	Introduced in Max 6.1.9
 void C74_EXPORT ext_main(void* r);
 

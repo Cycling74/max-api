@@ -14,7 +14,7 @@ namespace max {
 	/**	A low-level object for tempo-based scheduling.
 		@ingroup	time
 		@see		#t_timeobject
-		@see		@ref chapter_itm	*/
+		@see		ITM */
 	typedef t_object t_itm;
 
 
@@ -71,8 +71,8 @@ namespace max {
 	/**	Return a named itm object.
 		@ingroup		time
 		@param	s		The name of the itm to return.
-		@param	scheduler	
-		@param	defaultclocksourcename	
+		@param	scheduler	.
+		@param	defaultclocksourcename	.
 		@param	create	If non-zero, then create this named itm should it not already exist.
 		@return			The global #t_itm object.	*/
 	void *itm_getnamed(t_symbol *s, void *scheduler, t_symbol *defaultclocksourcename, long create);
@@ -267,7 +267,7 @@ namespace max {
 
 		@ingroup	time
 		@see		#t_itm
-		@see		@ref chapter_itm
+		@see		ITM
 	*/
 	typedef t_object t_timeobject;
 
@@ -310,7 +310,7 @@ namespace max {
 		@param		tx				The time object.
 		@param		phase			Pointer to a double to receive the progress within the specified time value of the associated ITM object.
 		@param		slope			Pointer to a double to receive the slope (phase difference) within the specified time value of the associated ITM object.
-		@param		ticks			
+		@param		ticks			Ticks
 	*/
 	void time_getphase(t_timeobject *tx, double *phase, double *slope, double *ticks);
 

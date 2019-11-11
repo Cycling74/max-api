@@ -181,8 +181,8 @@ namespace max {
 		@param		d		The address of a dictionary variable, which will hold a pointer to 
 							the new dictionary upon return.  Should be initialized to NULL.
 		@param		str		A NULL-terminated C-string containing @ref using_dictobj_syntax .
-		@param		str_is_already_json
-		@param		errorstring
+		@param		str_is_already_json .
+		@param		errorstring .
 		@return				A Max error code.
 		@see				#dictobj_dictionarytoatoms()
 	**/

@@ -802,7 +802,6 @@ namespace max {
 
 		@ingroup files
 		@param	s		A C-string containing the prompt you wish to display in the dialog box.
-		@return			Ignore.
 
 		@see open_dialog()
 	*/
@@ -819,7 +818,6 @@ namespace max {
 
 		@ingroup files
 		@param	s		A C-string containing the prompt you wish to display in the dialog box.
-		@return			Ignore.
 
 		@see open_dialog()
 	*/

@@ -859,7 +859,7 @@ namespace max {
 		@ingroup	jbox
 		@param	bb	The box to query.
 		@param	s	The new text to use for the box's hint.
-		@return		A Max error code.			*/
+			*/
 	void jbox_set_hintstring(t_object* bb, char* s);
 
 
@@ -873,7 +873,7 @@ namespace max {
 		@ingroup	jbox
 		@param	bb	The box to query.
 		@param	s	The annotation string for the box.
-		@return		A Max error code.		*/
+		*/
 	void jbox_set_annotation(t_object* bb, char* s);
 
 
