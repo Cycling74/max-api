@@ -875,7 +875,8 @@ namespace max {
         @param	w					Handle for the standalone builder
         @param	name				The name of the package
         @param	subfoldernames		A #t_atomarray containing symbols, each of which is a foldername in the package to include.
-        Pass NULL to include the entire package contents.
+                                    Pass NULL to include the entire package contents.
+                                    DO NOT FREE subfoldernames after passing it! Max takes over ownership of this atomarray!
         @version					Introduced in Max 7.0.4
     */
     void fileusage_addpackage(void *w, const char *name, t_object *subfoldernames);
