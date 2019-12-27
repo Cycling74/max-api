@@ -1007,6 +1007,9 @@ namespace max {
 		@return		Non-zero if in presentation mode, otherwise zero.		*/
 	t_max_err jbox_set_presentation(t_object* b, char c);
 
+  /** Get the ID path from box to top-level patcher. **/
+  t_symbol *jbox_get_boxpath(t_object* b);
+
 
 	// utilities to get/set patchline attributes
 
