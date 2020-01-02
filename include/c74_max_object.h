@@ -3154,6 +3154,29 @@ namespace max {
             return nullptr;
     }
 
+    inline void* object_method(t_object* target_object, t_symbol* method_name, void* arg1, void* arg2, void* arg3) {
+        method m = object_getmethod(target_object, method_name);
+        if (m)
+            return m(target_object, arg1, arg2, arg3);
+        else
+            return nullptr;
+    }
+
+    inline void* object_method(t_object* target_object, t_symbol* method_name, void* arg1, void* arg2, void* arg3, void* arg4) {
+        method m = object_getmethod(target_object, method_name);
+        if (m)
+            return m(target_object, arg1, arg2, arg3, arg4);
+        else
+            return nullptr;
+    }
+
+    inline void* object_method(t_object* target_object, t_symbol* method_name, void* arg1, void* arg2, void* arg3, void* arg4, void* arg5) {
+        method m = object_getmethod(target_object, method_name);
+        if (m)
+            return m(target_object, arg1, arg2, arg3, arg4, arg5);
+        else
+            return nullptr;
+    }
 
 
     /**
