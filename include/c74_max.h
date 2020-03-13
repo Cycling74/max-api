@@ -22,8 +22,15 @@
 namespace c74 {
 namespace max {
 
+    typedef void* (*method)(void* , ...);    ///< Function pointer type for generic methods. @ingroup datatypes
+
     // opaque internals used within the t_object
-    struct t_messlist;
+    typedef struct messlist {
+        t_symbol *m_sym;        ///< Name of the message
+        method m_fun;                ///< Method associated with the message
+        char m_type[8];    ///< Argument type information
+    } t_messlist;
+
     struct t_inlet;
     struct t_outlet;
     static const long OB_MAGIC = 1758379419L;
@@ -67,8 +74,6 @@ namespace max {
 
 namespace c74 {
 namespace max {
-
-    typedef void* (*method)(void* , ...);	///< Function pointer type for generic methods. @ingroup datatypes
 
     /// The data structure for a Max class.
     /// Should be considered opaque, but is not for legacy reasons.
