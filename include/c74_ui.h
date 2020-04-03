@@ -1495,6 +1495,8 @@ namespace max {
         static const int JBOX_FOCUS					(1<<20);			///< more advanced focus support (passed to jbox_initclass() to add "nextfocus" and "prevfocus" attributes to the UI object).  Not implemented as of 2009-05-11   @ingroup jbox
         static const int JBOX_BOXVIEW				(1<<23);			///< enable jboxview methods   @ingroup jbox
 
+        static const int JBOX_MULTITOUCH =          (1<<26);          ///< when passed to jbox_initclass box will be sent multitouch version of mouse messages
+
 
     /** actual numerical values of the b_fontface attribute; use jbox_fontface() to weight
         @ingroup	jbox		*/
@@ -1732,6 +1734,47 @@ namespace max {
     void jmouse_setcursor(t_object* patcherview, t_object* box, t_jmouse_cursortype type);
 
 
+    /** Input event types. */
+    typedef enum _inputeventtype {
+        eMouseEvent = 1,
+        eTouchEvent = 2,
+        ePenEvent = 3
+    } t_inputeventtype;
+
+
+    /** UI objects are sent messages for each mouse event.
+        Object's that include JBOX_MULTITOUCH flag in jbox_initclass call are sent a multitouch version of the event.
+        The multitouch messages are prefixed with "mt_" and have a different function prototype.
+
+        Standard mouse events:
+        - mouseenter, mousemove, mousedown, mousedrag, mouseup, mouseleave
+        - mousedoubleclick will also be sent on double click
+        - mousedragdelta is a special alternative -- see JBOX_MOUSEDRAGDELTA
+
+        Function prototype is of form:
+        void myobj_mousemove(t_myobj *x, t_object *patcherview, t_pt position, long modifiers);
+
+        mousewheel will be sent when the wheel moves over the box:
+        void myobj_mousewheel(t_myobj *x, t_object *patcherview, t_pt position, long modifiers, double wheelIncX, double wheelIncY);
+
+        Multitouch mouse events:
+        (note, if machine doesn't support touch then these events are still sent but only for the one mouse of course)
+        - mt_mouseenter, mt_mousemove, mt_mousedown, mt_mousedrag, mt_mouseup, mt_mouseleave
+
+        Function prototype is of form:
+        void myobj_mtmousemove(t_myobj *x, t_object *patcherview, t_mouseevent *mouseevent);
+    */
+    typedef struct _mouseevent {
+        t_inputeventtype    type;
+        t_atom_long         index;
+        t_pt                position;
+        t_modifiers         modifiers;
+        t_atom_float        pressure;
+        t_atom_float        orientation;
+        t_atom_float        rotation;
+        t_atom_float        tiltX;
+        t_atom_float        tiltY;
+    } t_mouseevent;
 
 
     /**	Get the current window, if any.
