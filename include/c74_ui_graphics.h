@@ -727,7 +727,7 @@ namespace max {
 
     /**	Enumeration of slanting options for font display.
         @ingroup	jfont			*/
-    enum t_jgraphics_font_slant {
+    enum class t_jgraphics_font_slant {
         JGRAPHICS_FONT_SLANT_NORMAL,		///< Normal slanting (typically this means no slanting)
         JGRAPHICS_FONT_SLANT_ITALIC 		///< Italic slanting
         // JGRAPHICS_FONT_SLANT_OBLIQUE
@@ -736,7 +736,7 @@ namespace max {
 
     /**	Enumeration of font weight options for font display.
         @ingroup	jfont			*/
-    enum t_jgraphics_font_weight {
+    enum class t_jgraphics_font_weight {
         JGRAPHICS_FONT_WEIGHT_NORMAL,		///< Normal font weight
         JGRAPHICS_FONT_WEIGHT_BOLD			///< Bold font weight
     };
