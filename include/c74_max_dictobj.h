@@ -43,7 +43,7 @@ namespace max {
                             Returns NULL if no dictionary is associated with name.
         @see				#dictobj_findregistered_retain()
     **/
-    t_dictionary* dictobj_findregistered_clone(t_symbol* name);
+    t_dictionary* dictobj_findregistered_clone(const t_symbol* name);
 
 
     /**	Find the #t_dictionary for a given name, return a pointer to that #t_dictionary, and increment its reference count.
@@ -56,7 +56,7 @@ namespace max {
         @see				#dictobj_release()
         @see				#dictobj_findregistered_clone()
     **/
-    t_dictionary* dictobj_findregistered_retain(t_symbol* name);
+    t_dictionary* dictobj_findregistered_retain(const t_symbol* name);
 
 
     /**	For a #t_dictionary/name that was previously retained with dictobj_findregistered_retain(),

@@ -2331,7 +2331,7 @@ namespace max {
                         For instance, the atom list <tt>foo bar 3.0 \@mode 6</tt> would cause <tt>attr_args_offset</tt> to return 3
                         (the attribute <tt>mode</tt> appears at position 3 in the atom list).
     */
-    long attr_args_offset(short ac, t_atom* av);
+    long attr_args_offset(const short ac, const t_atom* av);
 
 
     /**
@@ -2363,7 +2363,7 @@ namespace max {
         }
         @endcode
     */
-    void attr_args_process(void* x, short ac, t_atom* av);
+    void attr_args_process(void* x, const short ac, const t_atom* av);
 
 
     //constructors
@@ -3025,7 +3025,7 @@ namespace max {
         @return		The dictionary retrieved from the atoms.
         @see		attr_dictionary_process()
     */
-    t_dictionary* object_dictionaryarg(long ac, t_atom* av);
+    t_dictionary* object_dictionaryarg(const long ac, const t_atom* av);
 
 
     // use the macros for these in ext_obex_util.h

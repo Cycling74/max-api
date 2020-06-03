@@ -1554,7 +1554,7 @@ namespace max {
         @param	data	A pointer to some data passed to the box's notify method.
         @return			A Max error code.
     */
-    t_max_err jbox_notify(t_jbox* b, t_symbol* s, t_symbol* msg, void* sender, void* data);
+    t_max_err jbox_notify(t_jbox* b, const t_symbol* s, const t_symbol* msg, const void* sender, const void* data);
 
 
 

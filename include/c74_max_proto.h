@@ -246,7 +246,7 @@ namespace max {
 
         @see object_error()
     */
-    void object_post(t_object* x, const char* s, ...);
+    void object_post(const t_object* x, const char* s, ...);
 
 
     /**	Print text to the Max window, linked to an instance of your object,
@@ -266,7 +266,7 @@ namespace max {
         @see object_post()
         @see object_warn()
     */
-    void object_error(t_object* x, const char* s, ...);
+    void object_error(const t_object* x, const char* s, ...);
 
 
     /**	Print text to the Max window, linked to an instance of your object,
@@ -286,7 +286,7 @@ namespace max {
         @see object_post()
         @see object_error()
     */
-    void object_warn(t_object* x, const char* s, ...);
+    void object_warn(const t_object* x, const char* s, ...);
 
 
     /**	Print text to the Max window, linked to an instance of your object,
@@ -305,7 +305,7 @@ namespace max {
         @see object_post()
         @see object_error()
     */
-    void object_error_obtrusive(t_object* x, const char* s, ...);
+    void object_error_obtrusive(const t_object* x, const char* s, ...);
 
 
     // inlet/outlet functions
