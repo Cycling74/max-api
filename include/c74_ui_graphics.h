@@ -204,6 +204,26 @@ namespace max {
         @return				A Max error code.	*/
     t_max_err	jgraphics_image_surface_writejpeg(t_jsurface* surface, const char* filename, short path);
 
+    /** Get a writable bitmap of a surface.
+        After you are done reading/writing to the bitmap, you should call jgraphics_image_surface_unlockpixels().
+        @ingroup jsurface
+        @param  s      The surface.
+        @param  x      The rect horizontal-origin for the raw bitmap.
+        @param  y      The rect vertical-origin for the raw bitmap.
+        @param  width    The rect width for the bitmap.
+        @param  height    The rect height for the bitmap.
+        @param  linestride  The line stride for the bitmap.
+        @param  pixelstride  The pixel stride for the bitmap.
+        @return        A pointer to the raw bitmap.    */
+    unsigned char* jgraphics_image_surface_lockpixels(t_jsurface *s,
+                                  int x, int y, int width, int height,
+                                  int *linestride, int *pixelstride);
+
+    /** Unlock a surface locked by jgraphics_image_surface_lockpixels().
+        @ingroup jsurface
+        @param  s    The surface.
+        @param  data  The pointer returned by jgraphics_image_surface_lockpixels().  */
+    void    jgraphics_image_surface_unlockpixels(t_jsurface *s, const unsigned char *data);
 
     // Not used by any C74 code...
     void		jgraphics_surface_set_device_offset(t_jsurface* s, double x_offset, double y_offset);
