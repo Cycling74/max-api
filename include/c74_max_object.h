@@ -3121,6 +3121,9 @@ namespace max {
     t_max_err object_retain(t_object *x);
 
 
+    t_max_err class_parameter_register_default_color(t_class* c, t_symbol* attrname, t_symbol* colorname);
+
+
     END_USING_C_LINKAGE
 
 
