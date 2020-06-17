@@ -523,7 +523,7 @@ namespace max {
         @param	parsestr		A C-string, which will be parsed into an array of atoms to set the initial value.
     */
     #define CLASS_ATTR_DEFAULTNAME(c,attrname,flags,parsestr) \
-        { t_object* theattr=(t_object* )class_attr_get(c,gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"defaultname",(c74::max::t_symbol* )object_method(theattr, c74::max::gensym("gettype")),flags,parsestr); }
+        { auto theattr=(c74::max::t_object* )c74::max::class_attr_get(c,c74::max::gensym(attrname)); CLASS_ATTR_ATTR_PARSE(c,attrname,"defaultname",(c74::max::t_symbol* )object_method(theattr, c74::max::gensym("gettype")),flags,parsestr); }
 
 
     /**
