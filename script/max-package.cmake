@@ -17,7 +17,7 @@ if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/package-info.json.in")
 	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/package-info.json.in" "${CMAKE_CURRENT_SOURCE_DIR}/package-info.json" @ONLY)
 
 	message("Reading ${CMAKE_CURRENT_SOURCE_DIR}/package-info.json")
-	include("${CMAKE_CURRENT_LIST_DIR}/cmakepp.cmake")
+	include("${CMAKE_CURRENT_LIST_DIR}/cmakepp/cmakepp.cmake")
 	
 	file(READ "${CMAKE_CURRENT_SOURCE_DIR}/package-info.json" PKGINFOFILE)
 	json_deserialize("${PKGINFOFILE}")
