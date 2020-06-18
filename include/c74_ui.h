@@ -236,6 +236,10 @@ namespace max {
     t_max_err object_attr_setcolor(t_object* b, t_symbol* attrname, char* prgba);
 
 
+    // get RGB color (0.-1.) based on one of the color symbols
+    t_max_err object_parameter_color_get(t_object *x, t_symbol *s, t_jrgba *rgba);
+
+
     /**	Get the value of a #t_jrgba struct, returned as an array of atoms with the values for each component.
 
         @ingroup color
