@@ -29,7 +29,7 @@ if (APPLE)
 	elseif (REQUIRE_JITTER)
 		message(FATAL_ERROR "Cannot find Jitter")
 	else()
-		add_definitions(-DNO_JITTER)
+		add_definitions(-DC74_NO_JITTER)
 	endif()
 
 	set_property(TARGET ${PROJECT_NAME}
