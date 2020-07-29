@@ -2,6 +2,7 @@
 # Use of this source code is governed by the MIT License found in the License.md file.
 
 string(REGEX REPLACE "(.*)/" "" THIS_FOLDER_NAME "${CMAKE_CURRENT_SOURCE_DIR}")
+option(REQUIRE_JITTER "Require the Jitter Library" ON)
 
 if (WIN32)
 	# These must be prior to the "project" command
@@ -50,7 +51,7 @@ if (WIN32)
 	if (CMAKE_SIZEOF_VOID_P EQUAL 8)
 		SET(MaxAPI_LIB ${C74_MAX_API_DIR}/lib/win64/MaxAPI.lib)
 		SET(MaxAudio_LIB ${C74_MAX_API_DIR}/lib/win64/MaxAudio.lib)
-		SET(Jitter_LIB ${C74_MAX_API_DIR}/lib/win64/jitlib.lib)	
+		SET(Jitter_LIB ${C74_MAX_API_DIR}/lib/win64/jitlib.lib)
 	else ()
 		SET(MaxAPI_LIB ${C74_MAX_API_DIR}/lib/win32/MaxAPI.lib)
 		SET(MaxAudio_LIB ${C74_MAX_API_DIR}/lib/win32/MaxAudio.lib)
