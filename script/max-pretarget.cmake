@@ -18,7 +18,11 @@ if (WIN32)
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "/MT /Zi /O2 /Ob1 /D NDEBUG")
 endif ()
 
-project(${THIS_FOLDER_NAME})
+if (DEFINED PROJECT_NAME)
+	project(${PROJECT_NAME})
+else ()
+	project(${THIS_FOLDER_NAME})
+endif ()
 
 if (NOT DEFINED C74_MAX_API_DIR)
 	set(C74_MAX_API_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../max-api)
