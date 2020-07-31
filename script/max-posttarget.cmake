@@ -13,14 +13,24 @@ else ()
 endif ()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "${${PROJECT_NAME}_EXTERN_OUTPUT_NAME}")
+#remove the 'lib' prefix for some generators
+set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
 
 
 
 ### Output ###
 if (APPLE)
-    find_library(JITTER_LIBRARY "JitterAPI" HINTS "${C74_MAX_API_DIR}/lib/mac"  )
-    target_link_libraries(${PROJECT_NAME} PUBLIC ${JITTER_LIBRARY})
-	
+  find_library(
+    JITTER_LIBRARY "JitterAPI"
+    REQUIRED
+    PATHS "${C74_MAX_API_DIR}/lib/mac"
+    NO_DEFAULT_PATH
+    #only use the specific path above, don't look in system root
+    #this enables cross compilation to provide an alternative root
+    #but also find this specific path
+    NO_CMAKE_FIND_ROOT_PATH
+  )
+  target_link_libraries(${PROJECT_NAME} PUBLIC ${JITTER_LIBRARY})
 	set_property(TARGET ${PROJECT_NAME}
 				 PROPERTY BUNDLE True)
 	set_property(TARGET ${PROJECT_NAME}
@@ -31,6 +41,9 @@ if (APPLE)
 elseif (WIN32)
     if ("${PROJECT_NAME}" MATCHES "_test")
     else ()
+		find_package(OpenGL REQUIRED)
+		include_directories(${OPENGL_INCLUDE_DIR})
+		target_link_libraries(${PROJECT_NAME} PUBLIC ${OPENGL_LIBRARIES})
 
 		target_link_libraries(${PROJECT_NAME} PUBLIC ${MaxAPI_LIB})
 		target_link_libraries(${PROJECT_NAME} PUBLIC ${MaxAudio_LIB})
