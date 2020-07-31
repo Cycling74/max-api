@@ -19,8 +19,8 @@
 
 #ifdef WIN_VERSION
     #include <windows.h>
-    #include "gl\gl.h"
-    #include "gl\glu.h"
+    #include <GL/gl.h>
+    #include <GL/glu.h>
     #include "jit.wglext.h"
     #include "jit.glext.h"
     #define glGetProcAddress wglGetProcAddress
