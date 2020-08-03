@@ -3,11 +3,6 @@
 
 string(REGEX REPLACE "(.*)/" "" THIS_FOLDER_NAME "${CMAKE_CURRENT_SOURCE_DIR}")
 
-if (APPLE)
-	option(LINK_JITTER_FRAMEWORK "Link to the Jitter Library" ON)
-	option(LINK_DYNAMIC_LOOKUP "Use -undefined dynamic_lookup to allow undefined symbols" OFF)
-endif()
-
 if (WIN32)
 	# These must be prior to the "project" command
 	# https://stackoverflow.com/questions/14172856/compile-with-mt-instead-of-md-using-cmake
@@ -74,14 +69,10 @@ if (WIN32)
 		-D_USE_MATH_DEFINES
 	)
 else ()
-	if (LINK_DYNAMIC_LOOKUP)
-		set(C74_SYM_LINKER_FLAGS "-undefined dynamic_lookup")
-	else ()
-		file (TO_NATIVE_PATH "${C74_MAX_API_DIR}/script/max-linker-flags.txt" C74_SYM_MAX_LINKER_FLAGS)
-		file (TO_NATIVE_PATH "${C74_MAX_API_DIR}/script/msp-linker-flags.txt" C74_SYM_MSP_LINKER_FLAGS)
-		file (TO_NATIVE_PATH "${C74_MAX_API_DIR}/script/jitter-linker-flags.txt" C74_SYM_JITTER_LINKER_FLAGS)
-		set(C74_SYM_LINKER_FLAGS "@${C74_SYM_MAX_LINKER_FLAGS} @${C74_SYM_MSP_LINKER_FLAGS} @${C74_SYM_JITTER_LINKER_FLAGS}")
-	endif ()
+	file (TO_NATIVE_PATH "${C74_MAX_API_DIR}/script/max-linker-flags.txt" C74_SYM_MAX_LINKER_FLAGS)
+	file (TO_NATIVE_PATH "${C74_MAX_API_DIR}/script/msp-linker-flags.txt" C74_SYM_MSP_LINKER_FLAGS)
+	file (TO_NATIVE_PATH "${C74_MAX_API_DIR}/script/jitter-linker-flags.txt" C74_SYM_JITTER_LINKER_FLAGS)
+	set(C74_SYM_LINKER_FLAGS "@${C74_SYM_MAX_LINKER_FLAGS} @${C74_SYM_MSP_LINKER_FLAGS} @${C74_SYM_JITTER_LINKER_FLAGS}")
 
 	set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${C74_SYM_LINKER_FLAGS}")
 	set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${C74_SYM_LINKER_FLAGS}")
