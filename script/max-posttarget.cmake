@@ -18,6 +18,8 @@ else ()
     set(EXTERN_OUTPUT_NAME "${PROJECT_NAME}")
 endif ()
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "${EXTERN_OUTPUT_NAME}")
+#remove the 'lib' prefix for some generators
+set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
 
 
 
@@ -33,6 +35,9 @@ if (APPLE)
 elseif (WIN32)
     if ("${PROJECT_NAME}" MATCHES "_test")
     else ()
+		find_package(OpenGL REQUIRED)
+		include_directories(${OPENGL_INCLUDE_DIR})
+		target_link_libraries(${PROJECT_NAME} PUBLIC ${OPENGL_LIBRARIES})
 
 		target_link_libraries(${PROJECT_NAME} PUBLIC ${MaxAPI_LIB})
 		target_link_libraries(${PROJECT_NAME} PUBLIC ${MaxAudio_LIB})
@@ -45,11 +50,13 @@ elseif (WIN32)
 		set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".mxe")
 	endif ()
 
-	# warning about constexpr not being const in c++14
-	set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS "/wd4814")
+	if (CMAKE_GENERATOR MATCHES "Visual Studio")
+		# warning about constexpr not being const in c++14
+		set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS "/wd4814")
 
-	# do not generate ILK files
-	set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "/INCREMENTAL:NO")
+		# do not generate ILK files
+		set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "/INCREMENTAL:NO")
+	endif ()
 endif ()
 
 
