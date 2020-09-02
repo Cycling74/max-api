@@ -3120,6 +3120,11 @@ namespace max {
 
     t_max_err object_retain(t_object *x);
 
+    t_max_err class_parameter_init(t_class *c);
+    t_max_err class_parameter_setinfo(t_class *c, int type, long ac, t_atom *av);
+    t_max_err object_parameter_init_flags(t_object *x, int type, unsigned int flags);
+    // set the value of a particular parameter datum
+    t_max_err object_parameter_setinfo(t_object *x, int type, long ac, t_atom *av);
 
     t_max_err class_parameter_register_default_color(t_class* c, t_symbol* attrname, t_symbol* colorname);
 
