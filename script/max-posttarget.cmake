@@ -12,17 +12,24 @@ else ()
 	set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD_REQUIRED ON)
 endif ()
 
+if ("${PROJECT_NAME}" MATCHES ".*_tilde")
+	string(REGEX REPLACE "_tilde" "~" EXTERN_OUTPUT_NAME "${PROJECT_NAME}")
+else ()
+    set(EXTERN_OUTPUT_NAME "${PROJECT_NAME}")
+endif ()
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "${EXTERN_OUTPUT_NAME}")
+
+
 
 ### Output ###
 if (APPLE)
     find_library(JITTER_LIBRARY "JitterAPI" HINTS "${C74_MAX_API_DIR}/lib/mac"  )
     target_link_libraries(${PROJECT_NAME} PUBLIC ${JITTER_LIBRARY})
-
+	
 	set_property(TARGET ${PROJECT_NAME}
 				 PROPERTY BUNDLE True)
 	set_property(TARGET ${PROJECT_NAME}
-				 PROPERTY BUNDLE_EXTENSION "mxo")
+				 PROPERTY BUNDLE_EXTENSION "mxo")	
 	set_target_properties(${PROJECT_NAME} PROPERTIES XCODE_ATTRIBUTE_WRAPPER_EXTENSION "mxo")
 	set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_BUNDLE_VERSION "${GIT_VERSION_TAG}")
     set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_LIST_DIR}/Info.plist.in)
@@ -34,7 +41,7 @@ elseif (WIN32)
 		target_link_libraries(${PROJECT_NAME} PUBLIC ${MaxAudio_LIB})
 		target_link_libraries(${PROJECT_NAME} PUBLIC ${Jitter_LIB})
 	endif ()
-
+	
 	if (CMAKE_SIZEOF_VOID_P EQUAL 8)
 		set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".mxe64")
 	else ()
@@ -54,11 +61,11 @@ endif ()
 if (APPLE)
     if ("${PROJECT_NAME}" MATCHES "_test")
     else ()
-    	add_custom_command(
-    		TARGET ${PROJECT_NAME}
-    		POST_BUILD
-    		COMMAND cp "${CMAKE_CURRENT_LIST_DIR}/PkgInfo" "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/${EXTERN_OUTPUT_NAME}.mxo/Contents/PkgInfo"
-    		COMMENT "Copy PkgInfo"
+    	add_custom_command( 
+    		TARGET ${PROJECT_NAME} 
+    		POST_BUILD 
+    		COMMAND cp "${CMAKE_CURRENT_LIST_DIR}/PkgInfo" "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/${EXTERN_OUTPUT_NAME}.mxo/Contents/PkgInfo" 
+    		COMMENT "Copy PkgInfo" 
     	)
-    endif ()
+    endif ()    
 endif ()
