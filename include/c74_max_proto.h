@@ -505,6 +505,18 @@ namespace max {
     */
     void clock_unset(void* x);
 
+    /**
+	    Schedule the execution of a Clock.
+	    clock_delay() sets a clock to go off at a certain number of
+	    milliseconds from the current logical time.
+
+	    @ingroup clocks
+	    @param	x		Clock to schedule.
+	    @param	n		Delay, in milliseconds, before the Clock will execute.
+	    @see	clock_fdelay()
+    */
+    void clock_delay(void* x, long n);
+
 
     /**	Schedule the execution of a Clock using a floating-point argument.
         clock_delay() sets a clock to go off at a certain number of
