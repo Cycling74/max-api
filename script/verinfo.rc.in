@@ -13,6 +13,7 @@ BEGIN
   BEGIN
     BLOCK "040904E4"
 	BEGIN
+	  VALUE "CompanyName",		"@AUTHOR@"
 	  VALUE "LegalCopyright",	"@COPYRIGHT_STRING@"
 	  VALUE "ProductVersion",	@GIT_VERSION_MAJ@,@GIT_VERSION_MIN@,@GIT_VERSION_SUB@,0
 	END
