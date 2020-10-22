@@ -24,6 +24,14 @@ endif ()
 
 project(${THIS_FOLDER_NAME})
 
+if ("${PROJECT_NAME}" MATCHES ".*_tilde")
+	string(REGEX REPLACE "_tilde" "~" EXTERN_OUTPUT_NAME_DEFAULT "${PROJECT_NAME}")
+else ()
+	set(EXTERN_OUTPUT_NAME_DEFAULT "${PROJECT_NAME}")
+endif ()
+set(${PROJECT_NAME}_EXTERN_OUTPUT_NAME "${EXTERN_OUTPUT_NAME_DEFAULT}" CACHE STRING "The name to give to the external output file/directory")
+mark_as_advanced(${PROJECT_NAME}_EXTERN_OUTPUT_NAME)
+
 if (NOT DEFINED C74_MAX_API_DIR)
 	set(C74_MAX_API_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../max-api)
 endif ()

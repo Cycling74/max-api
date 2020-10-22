@@ -17,7 +17,7 @@ if ("${PROJECT_NAME}" MATCHES ".*_tilde")
 else ()
     set(EXTERN_OUTPUT_NAME "${PROJECT_NAME}")
 endif ()
-set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "${EXTERN_OUTPUT_NAME}")
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "${${PROJECT_NAME}_EXTERN_OUTPUT_NAME}")
 #remove the 'lib' prefix for some generators
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
 
@@ -68,7 +68,7 @@ if (APPLE)
     	add_custom_command(
     		TARGET ${PROJECT_NAME}
     		POST_BUILD
-    		COMMAND cp "${CMAKE_CURRENT_LIST_DIR}/PkgInfo" "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/${EXTERN_OUTPUT_NAME}.mxo/Contents/PkgInfo"
+    		COMMAND cp "${CMAKE_CURRENT_LIST_DIR}/PkgInfo" "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/${${PROJECT_NAME}_EXTERN_OUTPUT_NAME}.mxo/Contents/PkgInfo"
     		COMMENT "Copy PkgInfo"
     	)
     endif ()
