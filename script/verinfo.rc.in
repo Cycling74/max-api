@@ -23,3 +23,7 @@ BEGIN
     VALUE "Translation",		0x0409, 1252
   END
 END
+
+#ifdef EXCLUDE_FROM_COLLECTIVES
+C74OBJECTPROPERTIES C74OBJECTPROPERTIES  "excludefromcollectives.json"
+#endif
