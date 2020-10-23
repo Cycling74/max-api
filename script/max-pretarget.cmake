@@ -20,9 +20,7 @@ endif ()
 
 project(${THIS_FOLDER_NAME})
 
-if (NOT DEFINED C74_MAX_API_DIR)
-	set(C74_MAX_API_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../max-api)
-endif ()
+set(C74_MAX_API_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
 set(C74_INCLUDES "${C74_MAX_API_DIR}/include")
 set(C74_SCRIPTS "${C74_MAX_API_DIR}/script")
 
