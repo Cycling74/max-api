@@ -1,2 +1,4 @@
 Info.plist
 .DS_Store
+verinfo.rc
+verinfo.aps

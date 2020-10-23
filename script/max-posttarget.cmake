@@ -53,6 +53,10 @@ elseif (WIN32)
 
 	# do not generate ILK files
 	set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "/INCREMENTAL:NO")
+
+	if (ADD_VERINFO)
+		target_sources(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/verinfo.rc)
+	endif()
 endif ()
 
 
