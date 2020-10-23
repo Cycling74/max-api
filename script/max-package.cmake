@@ -8,7 +8,7 @@ project(${THIS_FOLDER_NAME})
 # Set version variables based on the current Git tag
 include("${CMAKE_CURRENT_LIST_DIR}/git-rev.cmake")
 
-
+set(ADD_VERINFO YES)
 
 # Update package-info.json, if present
 if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/package-info.json.in")
@@ -42,6 +42,13 @@ if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/package-info.json.in")
 					nav(extra.copyright)
 					ans(COPYRIGHT_STRING)			
 				endif()
+				if (extra_key STREQUAL "add_verinfo")
+					nav(extra.add_verinfo)
+					ans(ADD_VERINFO_USER_VALUE)
+					if (NOT ADD_VERINFO_USER_VALUE STREQUAL true)
+						set(ADD_VERINFO NO)
+					endif()
+				endif()
 			endforeach ()			
 		endif ()
 	endforeach ()
@@ -66,6 +73,21 @@ if (APPLE)
 	configure_file("${CMAKE_CURRENT_LIST_DIR}/Info.plist.in" "${CMAKE_CURRENT_LIST_DIR}/Info.plist" @ONLY)
 endif ()
 
+if (WIN32 AND ADD_VERINFO)
+	message("Generating verinfo.rc")
+
+	if (NOT DEFINED AUTHOR_DOMAIN)
+		set(AUTHOR_DOMAIN "com.acme")
+	endif ()
+	if (NOT DEFINED COPYRIGHT_STRING)
+		set(COPYRIGHT_STRING "Copyright (c) 1974 Acme Inc")
+	endif ()
+	if (NOT DEFINED EXCLUDE_FROM_COLLECTIVES)
+		set(EXCLUDE_FROM_COLLECTIVES "no")
+	endif()
+
+	configure_file("${CMAKE_CURRENT_LIST_DIR}/verinfo.rc.in" "${CMAKE_CURRENT_LIST_DIR}/verinfo.rc" @ONLY)
+endif()
 
 # Macro from http://stackoverflow.com/questions/7787823/cmake-how-to-get-the-name-of-all-subdirectories-of-a-directory
 MACRO(SUBDIRLIST result curdir)
