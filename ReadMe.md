@@ -1,6 +1,8 @@
 # Max-API
 
-This folder contains all of the support files you will need to compile an external object written in C/C++. It is distributed as a part of the [Max-DevKit Package](https://github.com/Cycling74/max-devkit). Please refer to that package for additional documentation and best practices.
+This folder contains all of the support files you will need to compile an external object written in C/C++. It is distributed as a part of the [Min-DevKit Package](https://github.com/Cycling74/min-devkit). Please refer to that package for additional documentation and best practices.
+
+As an alternative for traditional Max external development see the [Max SDK.](https://github.com/Cycling74/max-sdk)
 
 ## Overview of Contents
 
