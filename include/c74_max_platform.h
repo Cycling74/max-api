@@ -9,6 +9,7 @@
 #include <cmath>
 #include <cstring>
 #include <cstdio>
+#include <cstdint>
 #include <cstdlib>
 #include <cfloat>
 
@@ -52,23 +53,23 @@ namespace c74 {
 namespace max {
     typedef int 				t_int;
     typedef unsigned int 		t_uint; 	///< an unsigned int as defined by the architecture / platform  @ingroup misc
-    typedef char 				t_int8; 	///< a 1-byte int  @ingroup misc
-    typedef unsigned char 		t_uint8;	///< an unsigned 1-byte int  @ingroup misc
-    typedef short 				t_int16; 	///< a 2-byte int  @ingroup misc
-    typedef unsigned short 		t_uint16; 	///< an unsigned 2-byte int  @ingroup misc
-    typedef int 				t_int32; 	///< a 4-byte int  @ingroup misc
-    typedef unsigned int 		t_uint32; 	///< an unsigned 4-byte int  @ingroup misc
-    typedef long long 			t_int64;	///< an 8-byte int  @ingroup misc
-    typedef unsigned long long 	t_uint64;	///< an unsigned 8-byte int  @ingroup misc
+    typedef int8_t 				t_int8; 	///< a 1-byte int  @ingroup misc
+    typedef uint8_t 			t_uint8;	///< an unsigned 1-byte int  @ingroup misc
+    typedef int16_t 			t_int16; 	///< a 2-byte int  @ingroup misc
+    typedef uint16_t	 		t_uint16; 	///< an unsigned 2-byte int  @ingroup misc
+    typedef int32_t 			t_int32; 	///< a 4-byte int  @ingroup misc
+    typedef uint32_t 			t_uint32; 	///< an unsigned 4-byte int  @ingroup misc
+    typedef int64_t 			t_int64;	///< an 8-byte int  @ingroup misc
+    typedef uint64_t 			t_uint64;	///< an unsigned 8-byte int  @ingroup misc
     typedef t_uint32 			t_fourcc; 	///< an integer of suitable size to hold a four char code / identifier  @ingroup misc
 
     #ifdef C74_X64
-    typedef unsigned long long	t_ptr_uint;		///< an unsigned pointer-sized int  @ingroup misc
-    typedef long long			t_ptr_int; 		///< a pointer-sized int  @ingroup misc
+    typedef uint64_t			t_ptr_uint;		///< an unsigned pointer-sized int  @ingroup misc
+    typedef int64_t				t_ptr_int; 		///< a pointer-sized int  @ingroup misc
     typedef double				t_atom_float;	///< the type that is an A_FLOAT in a #t_atom  @ingroup misc
     #else
-    typedef unsigned long		t_ptr_uint;		///< an unsigned pointer-sized int  @ingroup misc
-    typedef long 				t_ptr_int; 		///< a pointer-sized int  @ingroup misc
+    typedef uint32_t			t_ptr_uint;		///< an unsigned pointer-sized int  @ingroup misc
+    typedef int64_t 			t_ptr_int; 		///< a pointer-sized int  @ingroup misc
     typedef float 				t_atom_float; 	///< the type that is an A_FLOAT in a #t_atom  @ingroup misc
     #endif
 
