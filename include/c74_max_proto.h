@@ -505,6 +505,18 @@ namespace max {
     */
     void clock_unset(void* x);
 
+    /**
+	    Schedule the execution of a Clock.
+	    clock_delay() sets a clock to go off at a certain number of
+	    milliseconds from the current logical time.
+
+	    @ingroup clocks
+	    @param	x		Clock to schedule.
+	    @param	n		Delay, in milliseconds, before the Clock will execute.
+	    @see	clock_fdelay()
+    */
+    void clock_delay(void* x, long n);
+
 
     /**	Schedule the execution of a Clock using a floating-point argument.
         clock_delay() sets a clock to go off at a certain number of
@@ -561,6 +573,146 @@ namespace max {
         @see		clock_getftime()
      */
     double gettime_forobject(t_object* x);
+
+    long  getschedtime(void);
+    long  getexttime(void);
+    void  sched_suspend(void);
+    void  sched_resume(void);
+    short sched_isinpoll(void);
+    short sched_isinqueue(void);
+
+    /**
+	Cause a function to be executed at the timer level at some time in the future.
+	@ingroup	threading
+	@param		ob		First argument passed to the function fun when it executes.
+	@param		fun		Function to be called, see below for how it should be declared.
+	@param		when	The logical time that the function fun will be executed.
+	@param		sym		Second argument passed to the function fun when it executes.
+	@param		argc	Count of arguments in argv. argc is also the third argument passed to the function fun when it executes.
+	@param		argv	Array containing a variable number of #t_atom function arguments.
+						If this argument is non-zero, defer allocates memory to make a copy of the arguments
+						(according to the size passed in argc)
+						and passes the copied array to the function fun when it executes as the fourth argument.
+	@remark				schedule() calls a function at some time in the future. Unlike defer(),
+						the function is called in the scheduling loop when logical time is equal
+						to the specified value when. This means that the function could be
+						called at interrupt level, so it should follow the usual restrictions on
+						interrupt-level conduct. The function fun passed to schedule should
+						be declared as follows:
+
+	@code
+	void myobject_do (myObject *client, t_symbol *s, short argc, t_atom *argv);
+	@endcode
+
+	@remark				One use of schedule() is as an alternative to using the lockout flag.
+	@see		defer()
+    */
+    void schedule(void* ob, method fun, long when, t_symbol* sym, short argc, t_atom* argv);
+    void schedulef(void* ob, method fun, double when, t_symbol* sym, short argc, t_atom* argv);
+
+
+    /**	Create a new local scheduler.
+	@ingroup		clocks
+	@return			A pointer to the newly created scheduler.
+	@see	@ref	creating_schedulers
+    */
+    void* scheduler_new(void);
+
+
+    /**	Make a scheduler current, so that future related calls (such as
+	clock_delay()) will affect the appropriate scheduler.
+	@ingroup		clocks
+	@param	x		The scheduler to make current.
+	@return			This routine returns a pointer to the previously current scheduler,
+					saved and restored when local scheduling is complete.
+	@see	@ref	creating_schedulers
+    */
+    void* scheduler_set(void* x);
+
+    /**	Get the currently set scheduler.
+	@ingroup		clocks
+	@return			This routine returns a pointer to the current scheduler,
+	@see	@ref	creating_schedulers
+    */
+    void* scheduler_get();
+
+    /**	Get the scheduler associated with a given object, if any.
+	@ingroup		clocks
+	@param o		The object who's scheduler is to be returned.
+	@return			This routine returns a pointer to the scheduler or the passed in object,
+	@see	@ref	creating_schedulers
+    */
+    void* scheduler_fromobject(t_object* o);
+
+    /** Run scheduler events to a selected time.
+	@ingroup		clocks
+	@param	x		The scheduler to advance.
+	@param	until	The ending time for this run (in milliseconds).
+	@see	@ref	creating_schedulers
+    */
+    void scheduler_run(void* x, double until);
+
+
+    /** Set the current time of the scheduler.
+	@ingroup		clocks
+	@param	x		The scheduler to set.
+	@param	time	The new current time for the selected scheduler (in milliseconds).
+	@see	@ref	creating_schedulers
+    */
+    void scheduler_settime(void* x, double time);
+
+
+    /** Retrieve the current time of the selected scheduler.
+	@ingroup		clocks
+	@param	x		The scheduler to query.
+	@param	time	The current time of the selected scheduler.
+	@see	@ref	creating_schedulers
+    */
+    void scheduler_gettime(void* x, double* time);
+
+    /** Shift scheduler's current time and run time for all pending clock.
+    Could be used to change scheduler's time reference without impacting current clocks.
+	@ingroup		clocks
+	@param	x		The scheduler to affect.
+	@param	amount	Number of milliseconds to shift by.
+	@see	@ref	creating_schedulers
+    */
+    void scheduler_shift(void* x, double amount);
+
+    /**
+	Cause a function to be executed at the timer level at some time in the future specified by a delay offset.
+	@ingroup	threading
+	@param		ob		First argument passed to the function fun when it executes.
+	@param		fun		Function to be called, see below for how it should be declared.
+	@param		delay	The delay from the current time before the function will be executed.
+	@param		sym		Second argument passed to the function fun when it executes.
+	@param		argc	Count of arguments in argv. argc is also the third argument passed to the function fun when it executes.
+	@param		argv	Array containing a variable number of #t_atom function arguments.
+						If this argument is non-zero, schedule_delay() allocates memory to make a copy of the arguments
+						(according to the size passed in argc)
+						and passes the copied array to the function fun when it executes as the fourth argument.
+	@remark				schedule_delay() is similar to schedule() but allows you to specify the
+						time as a delay rather than a specific logical time.
+	@code
+	void myobject_click (t_myobject *x, Point pt, short modifiers)
+	{
+		t_atom a[1];
+		a[0].a_type = A_LONG;
+		a[0].a_w.w_long = Random();
+		schedule_delay(x, myobject_sched, 0 ,0, 1, a);
+	}
+	void myobject_sched (t_myobject *x, t_symbol *s, short ac, t_atom *av)
+	{
+		outlet_int(x->m_out,av->a_w.w_long);
+	}
+	@endcode
+	@see schedule()
+    */
+    void  schedule_delay(void* ob, method fun, long delay, t_symbol* sym, short argc, t_atom* argv);
+    void  schedule_fdelay(void* ob, method fun, double delay, t_symbol* sym, short argc, t_atom* argv);
+    void  schedule_defer(void* ob, method fun, long delay, t_symbol* sym, short argc, t_atom* arv);
+    void  schedule_fdefer(void* ob, method fun, double delay, t_symbol* sym, short argc, t_atom* arv);
+    short lockout_set(short);
 
 
     // queue functions
