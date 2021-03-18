@@ -3067,6 +3067,91 @@ namespace max {
     */
     t_max_err atom_alloc_array(long minsize, long* ac, t_atom** av, char* alloc);
 
+    /**
+    	Retrieves the integer value of a particular t_atom from an atom list, if the atom exists.
+    	@ingroup atom
+    	@param 	c		Pointer to a long variable to receive the atom's data if the function is successful.
+    	@param 	idx		Offset into the atom list of the atom of interest, starting from 0. 
+    					For instance, if you want data from the 3rd atom in the atom list, <tt>idx</tt> should be set to 2.
+    	@param 	ac		Count of av.
+    	@param 	av		Pointer to the first t_atom of an atom list.
+    	@return 		This function returns the error code #MAX_ERR_NONE if successful, 
+    	 				or one of the other error codes defined in #e_max_errorcodes if unsuccessful.
+    	@remark 		The atom_arg_getlong() function only changes the value of <tt>c</tt> if the function is successful. 
+    					For instance, the following code snippet illustrates a simple, but typical use:
+    	@code
+    	void myobject_mymessage(t_myobject *x, t_symbol *s, long ac, t_atom *av)
+    	{
+    		t_atom_long var = -1;
+    		// here, we are expecting a value of 0 or greater
+    		atom_arg_getlong(&var, 0, ac, av);
+    		if (val == -1) // i.e. unchanged
+    			post("it is likely that the user did not provide a valid argument");
+    		else {
+    			...
+    		}
+    	}
+    	@endcode
+    */
+    t_max_err atom_arg_getlong(t_atom_long *c, long idx, long ac, const t_atom *av);
+    
+    
+    /**
+    	Retrieves the floating point value of a particular t_atom from an atom list, if the atom exists.
+    	@ingroup atom
+    	@param 	c		Pointer to a float variable to receive the atom's data if the function is successful. Otherwise, the value is left  unchanged.
+    	@param 	idx		Offset into the atom list of the atom of interest, starting from 0. 
+    					For instance, if you want data from the 3rd atom in the atom list, <tt>idx</tt> should be set to 2.
+    	@param 	ac		Count of av.
+    	@param 	av		Pointer to the first t_atom of an atom list.
+    	@return 		This function returns the error code #MAX_ERR_NONE if successful, 
+    	 				or one of the other error codes defined in #e_max_errorcodes if unsuccessful.
+    */
+    long atom_arg_getfloat(float *c, long idx, long ac, const t_atom *av);
+    
+    
+    /**
+    	Retrieves the floating point value, as a double, of a particular t_atom from an atom list, if the atom exists.
+    	@ingroup atom
+    	@param 	c		Pointer to a double variable to receive the atom's data if the function is successful. Otherwise the value is left  unchanged.
+    	@param 	idx		Offset into the atom list of the atom of interest, starting from 0. 
+    					For instance, if you want data from the 3rd atom in the atom list, <tt>idx</tt> should be set to 2.
+    	@param 	ac		Count of av.
+    	@param 	av		Pointer to the first t_atom of an atom list.
+    	@return 		This function returns the error code #MAX_ERR_NONE if successful, 
+    	 				or one of the other error codes defined in #e_max_errorcodes if unsuccessful.
+    */
+    long atom_arg_getdouble(double *c, long idx, long ac, const t_atom *av);
+    
+    
+    /**
+    	Retrieves the t_symbol * value of a particular t_atom from an atom list, if the atom exists.
+    	@ingroup atom
+    	@param 	c		Pointer to a t_symbol * variable to receive the atom's data if the function is successful. Otherwise, the value is  left unchanged.
+    	@param 	idx		Offset into the atom list of the atom of interest, starting from 0. 
+    					For instance, if you want data from the 3rd atom in the atom list, <tt>idx</tt> should be set to 2.
+    	@param 	ac		Count of av.
+    	@param 	av		Pointer to the first t_atom of an atom list.
+    	@return 		This function returns the error code #MAX_ERR_NONE if successful, 
+    	 				or one of the other error codes defined in #e_max_errorcodes if unsuccessful.
+    	@remark 		The atom_arg_getsym() function only changes the value of <tt>c</tt> if the function is successful. 
+    					For instance, the following code snippet illustrates a simple, but typical use:
+    	@code
+    	void myobject_open(t_myobject *x, t_symbol *s, long ac, t_atom *av)
+    	{
+    		t_symbol *filename = _sym_nothing;
+    		// here, we are expecting a file name.
+    		// if we don't get it, open a dialog box 
+    		atom_arg_getsym(&filename, 0, ac, av);
+    		if (filename == _sym_nothing) { // i.e. unchanged
+    			// open the file dialog box,
+    			// get a value for filename
+    		}
+    		// do something with the filename
+    	}
+    	@endcode
+    */
+    long atom_arg_getsym(t_symbol **c, long idx, long ac, const t_atom *av);
 
     /**
         Determine if a class is a user interface object.
