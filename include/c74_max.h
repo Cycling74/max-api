@@ -126,6 +126,7 @@ namespace max {
     typedef t_object t_box;			///< A box @ingroup patcher
     typedef t_object t_clock;		///< A clock @ingroup clocks
     typedef void* t_qelem;			///< A qelem @ingroup qelems
+    typedef void* t_scheduler;		///< A scheduler @ingroup schedulers
 
 
 

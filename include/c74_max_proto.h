@@ -562,6 +562,8 @@ namespace max {
      */
     double gettime_forobject(t_object* x);
 
+    t_scheduler* scheduler_fromobject(t_object* obj);
+
 
     // queue functions
 
