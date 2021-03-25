@@ -27,6 +27,8 @@
 
 #pragma once
 
+#define C74_EXPAND(x) x
+
 /// concatenates tokens, even when the tokens are macros themselves
 #define C74_JOIN_HELPER_HELPER(_0, _1)		_0##_1
 #define C74_JOIN_HELPER(_0, _1)				C74_JOIN_HELPER_HELPER(_0, _1)

@@ -3141,7 +3141,7 @@ namespace max {
     inline void* object_method(t_object* target_object, t_symbol* method_name) {
         method m = object_getmethod(target_object, method_name);
         if (m)
-            return m(target_object);
+            return CALL_METHOD(m, target_object, NULL);
         else
             return nullptr;
     }
@@ -3149,7 +3149,7 @@ namespace max {
     inline void* object_method(t_object* target_object, t_symbol* method_name, void* arg1) {
         method m = object_getmethod(target_object, method_name);
         if (m)
-            return m(target_object, arg1);
+            return CALL_METHOD(m, target_object, arg1);
         else
             return nullptr;
     }
@@ -3157,7 +3157,7 @@ namespace max {
     inline void* object_method(t_object* target_object, t_symbol* method_name, void* arg1, void* arg2) {
         method m = object_getmethod(target_object, method_name);
         if (m)
-            return m(target_object, arg1, arg2);
+            return CALL_METHOD(m, target_object, arg1, arg2);
         else
             return nullptr;
     }
@@ -3165,7 +3165,7 @@ namespace max {
     inline void* object_method(t_object* target_object, t_symbol* method_name, void* arg1, void* arg2, void* arg3) {
         method m = object_getmethod(target_object, method_name);
         if (m)
-            return m(target_object, arg1, arg2, arg3);
+            return CALL_METHOD(m, target_object, arg1, arg2, arg3);
         else
             return nullptr;
     }
@@ -3173,7 +3173,7 @@ namespace max {
     inline void* object_method(t_object* target_object, t_symbol* method_name, void* arg1, void* arg2, void* arg3, void* arg4) {
         method m = object_getmethod(target_object, method_name);
         if (m)
-            return m(target_object, arg1, arg2, arg3, arg4);
+            return CALL_METHOD(m, target_object, arg1, arg2, arg3, arg4);
         else
             return nullptr;
     }
@@ -3181,7 +3181,7 @@ namespace max {
     inline void* object_method(t_object* target_object, t_symbol* method_name, void* arg1, void* arg2, void* arg3, void* arg4, void* arg5) {
         method m = object_getmethod(target_object, method_name);
         if (m)
-            return m(target_object, arg1, arg2, arg3, arg4, arg5);
+            return CALL_METHOD(m, target_object, arg1, arg2, arg3, arg4, arg5);
         else
             return nullptr;
     }
