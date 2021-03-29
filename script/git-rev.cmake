@@ -17,7 +17,7 @@ string(REPLACE "v" "" GIT_VERSION_TAG "${GIT_TAG}")
 string(LENGTH "${GIT_VERSION_TAG}" taglen)
 #message("Git tag length : " ${taglen})
 if (taglen GREATER 1)
-  string(REPLACE "." ";" GIT_TAG_LIST ${GIT_VERSION_TAG}) # make a list from the tag string
+  string(REGEX MATCHALL "-.*$|[0-9]+" GIT_TAG_LIST ${GIT_VERSION_TAG})
   list(LENGTH GIT_TAG_LIST len)
   if (len GREATER 0)
           list(GET GIT_TAG_LIST 0 GIT_VERSION_MAJ)
