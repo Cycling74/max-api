@@ -14,7 +14,6 @@ set(ADD_VERINFO YES)
 
 # Update package-info.json, if present
 if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/package-info.json.in")
-	message("Building _____ ${GIT_TAG} _____")
 	set(C74_PACKAGE_NAME "${THIS_FOLDER_NAME}")
 	configure_file("${CMAKE_CURRENT_SOURCE_DIR}/package-info.json.in" "${CMAKE_CURRENT_SOURCE_DIR}/package-info.json" @ONLY)
 
@@ -50,6 +49,8 @@ if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/package-info.json.in")
 	if (EXCLUDE_FROM_COLLECTIVES MATCHES "-NOTFOUND")
 		set(EXCLUDE_FROM_COLLECTIVES "no")
 	endif ()
+
+	message("Building _____ ${PACKAGE_VERSION} _____")
 endif ()
 
 
