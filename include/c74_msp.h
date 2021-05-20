@@ -159,6 +159,10 @@ namespace max {
     void class_dspinitjbox(t_class* c);
 
 
+    t_int atom_getintarg(short which, short argc, t_atom *argv);
+    float atom_getfloatarg(short which, short argc, t_atom *argv);
+    t_symbol *atom_getsymarg(short which, short argc, t_atom *argv);
+
 
 
     END_USING_C_LINKAGE
